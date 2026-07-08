@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: Noiro-0/Melian-Happy   # GANTI dengan username/nama-repo GitHub kamu
   branch: main
   base_url: https://api.netlify.com
