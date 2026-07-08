@@ -1,0 +1,14 @@
+---
+layout: default
+title: Galeri Kegiatan
+---
+# Galeri Kegiatan {{ site.dusun.nama }}
+
+<div class="gallery-grid">
+  {% for foto in site.data.galeri %}
+  <figure class="gallery-item">
+    <img src="{{ foto.gambar | relative_url }}" alt="{{ foto.judul }}">
+    <figcaption>{{ foto.judul }}</figcaption>
+  </figure>
+  {% endfor %}
+</div>

@@ -1,0 +1,16 @@
+tahun: 2026
+jumlah_kk: 320
+jumlah_penduduk: 1250
+laki_laki: 620
+perempuan: 630
+mata_pencaharian:
+  - label: "Petani"
+    jumlah: 450
+  - label: "Pedagang/UMKM"
+    jumlah: 210
+  - label: "Buruh"
+    jumlah: 180
+  - label: "PNS/Karyawan"
+    jumlah: 95
+  - label: "Lainnya"
+    jumlah: 315

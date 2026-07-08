@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article class="potensi-detail">
+  <h1>{{ page.title }}</h1>
+  <p class="potensi-kategori">Kategori: {{ page.kategori }}</p>
+  {% if page.image %}<img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="post-image">{% endif %}
+  <div class="post-content">
+    {{ content }}
+  </div>
+  <p><a href="{{ '/potensi.html' | relative_url }}">&larr; Kembali ke Potensi Dusun</a></p>
+</article>

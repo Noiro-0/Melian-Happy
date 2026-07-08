@@ -1,0 +1,15 @@
+---
+layout: default
+title: Potensi Dusun
+---
+# Potensi & Produk Unggulan {{ site.dusun.nama }}
+
+<div class="potensi-grid">
+  {% for item in site.potensi %}
+  <a href="{{ item.url | relative_url }}" class="potensi-card">
+    {% if item.image %}<img src="{{ item.image | relative_url }}" alt="{{ item.title }}">{% endif %}
+    <h3>{{ item.title }}</h3>
+    <p class="potensi-kategori">{{ item.kategori }}</p>
+  </a>
+  {% endfor %}
+</div>

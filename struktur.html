@@ -1,0 +1,15 @@
+---
+layout: default
+title: Struktur Organisasi
+---
+# Struktur Organisasi {{ site.dusun.nama }}
+
+<div class="perangkat-grid">
+  {% for orang in site.data.perangkat %}
+  <div class="perangkat-card">
+    {% if orang.foto %}<img src="{{ orang.foto | relative_url }}" alt="{{ orang.nama }}">{% endif %}
+    <h3>{{ orang.nama }}</h3>
+    <p>{{ orang.jabatan }}</p>
+  </div>
+  {% endfor %}
+</div>

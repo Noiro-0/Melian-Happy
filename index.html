@@ -1,0 +1,47 @@
+---
+layout: default
+title: Beranda
+---
+<section class="hero">
+  <h1>Selamat Datang di {{ site.dusun.nama }}</h1>
+  <p>{{ site.dusun.desa }}, {{ site.dusun.kecamatan }}, {{ site.dusun.kabupaten }}, {{ site.dusun.provinsi }}</p>
+</section>
+
+<section class="quick-links">
+  <a href="{{ '/profil.html' | relative_url }}" class="quick-card">
+    <h3>Profil & Sejarah</h3>
+    <p>Sejarah dan gambaran umum dusun</p>
+  </a>
+  <a href="{{ '/struktur.html' | relative_url }}" class="quick-card">
+    <h3>Struktur Organisasi</h3>
+    <p>Perangkat dan pengurus dusun</p>
+  </a>
+  <a href="{{ '/statistik.html' | relative_url }}" class="quick-card">
+    <h3>Statistik</h3>
+    <p>Data kependudukan dusun</p>
+  </a>
+  <a href="{{ '/potensi.html' | relative_url }}" class="quick-card">
+    <h3>Potensi Dusun</h3>
+    <p>UMKM, wisata, dan produk unggulan</p>
+  </a>
+  <a href="{{ '/galeri.html' | relative_url }}" class="quick-card">
+    <h3>Galeri</h3>
+    <p>Dokumentasi kegiatan dusun</p>
+  </a>
+  <a href="{{ '/berita.html' | relative_url }}" class="quick-card">
+    <h3>Berita</h3>
+    <p>Pengumuman dan kabar terbaru</p>
+  </a>
+</section>
+
+<section class="latest-news">
+  <h2>Berita Terbaru</h2>
+  <ul class="post-list">
+    {% for post in site.posts limit:3 %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span class="post-date">{{ post.date | date: "%d %B %Y" }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

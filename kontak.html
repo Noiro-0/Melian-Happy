@@ -1,0 +1,20 @@
+---
+layout: default
+title: Kontak
+---
+# Kontak {{ site.dusun.nama }}
+
+<div class="kontak-info">
+  <p><strong>Kepala Dusun:</strong> {{ site.dusun.kepala_dusun }}</p>
+  <p><strong>Alamat:</strong> {{ site.dusun.alamat }}</p>
+  <p><strong>Email:</strong> {{ site.dusun.email }}</p>
+  <p><strong>WhatsApp:</strong> {{ site.dusun.whatsapp }}</p>
+</div>
+
+## Lokasi
+<div class="map-wrapper">
+  <iframe
+    src="https://maps.google.com/maps?q={{ site.dusun.nama | url_encode }}&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
+  </iframe>
+</div>

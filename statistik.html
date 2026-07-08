@@ -1,0 +1,35 @@
+---
+layout: default
+title: Statistik Kependudukan
+---
+# Statistik Kependudukan {{ site.dusun.nama }}
+<p>Data tahun {{ site.data.statistik.tahun }}</p>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <span class="stat-number">{{ site.data.statistik.jumlah_kk }}</span>
+    <span class="stat-label">Kepala Keluarga</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-number">{{ site.data.statistik.jumlah_penduduk }}</span>
+    <span class="stat-label">Total Penduduk</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-number">{{ site.data.statistik.laki_laki }}</span>
+    <span class="stat-label">Laki-laki</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-number">{{ site.data.statistik.perempuan }}</span>
+    <span class="stat-label">Perempuan</span>
+  </div>
+</div>
+
+## Mata Pencaharian
+<table class="stat-table">
+  <thead><tr><th>Mata Pencaharian</th><th>Jumlah</th></tr></thead>
+  <tbody>
+  {% for item in site.data.statistik.mata_pencaharian %}
+    <tr><td>{{ item.label }}</td><td>{{ item.jumlah }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>

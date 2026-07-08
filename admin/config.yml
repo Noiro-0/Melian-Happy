@@ -1,0 +1,119 @@
+backend:
+  name: github
+  repo: username/nama-repo   # GANTI dengan username/nama-repo GitHub kamu
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+publish_mode: editorial_workflow
+
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+collections:
+  - name: "berita"
+    label: "Berita"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Tanggal", name: "date", widget: "datetime" }
+      - { label: "Penulis", name: "author", widget: "string", default: "Admin Dusun" }
+      - { label: "Gambar Sampul", name: "image", widget: "image", required: false }
+      - { label: "Isi Berita", name: "body", widget: "markdown" }
+
+  - name: "potensi"
+    label: "Potensi Dusun"
+    folder: "_potensi"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nama", name: "title", widget: "string" }
+      - label: "Kategori"
+        name: "kategori"
+        widget: "select"
+        options: ["UMKM", "Wisata", "Produk Unggulan", "Lainnya"]
+      - { label: "Gambar", name: "image", widget: "image", required: false }
+      - { label: "Deskripsi", name: "body", widget: "markdown" }
+
+  - name: "profil"
+    label: "Profil & Sejarah"
+    files:
+      - name: "profil"
+        label: "Halaman Profil & Sejarah"
+        file: "profil.html"
+        fields:
+          - { label: "Judul Halaman", name: "title", widget: "string" }
+          - { label: "Konten", name: "body", widget: "markdown" }
+
+  - name: "struktur_data"
+    label: "Struktur Organisasi (Perangkat)"
+    files:
+      - name: "perangkat"
+        label: "Daftar Perangkat Dusun"
+        file: "_data/perangkat.yml"
+        fields:
+          - label: "Perangkat"
+            name: "perangkat"
+            widget: "list"
+            fields:
+              - { label: "Nama", name: "nama", widget: "string" }
+              - { label: "Jabatan", name: "jabatan", widget: "string" }
+              - { label: "Foto", name: "foto", widget: "image", required: false }
+
+  - name: "statistik_data"
+    label: "Statistik Kependudukan"
+    files:
+      - name: "statistik"
+        label: "Data Statistik"
+        file: "_data/statistik.yml"
+        fields:
+          - { label: "Tahun", name: "tahun", widget: "number" }
+          - { label: "Jumlah KK", name: "jumlah_kk", widget: "number" }
+          - { label: "Jumlah Penduduk", name: "jumlah_penduduk", widget: "number" }
+          - { label: "Laki-laki", name: "laki_laki", widget: "number" }
+          - { label: "Perempuan", name: "perempuan", widget: "number" }
+          - label: "Mata Pencaharian"
+            name: "mata_pencaharian"
+            widget: "list"
+            fields:
+              - { label: "Jenis Pekerjaan", name: "label", widget: "string" }
+              - { label: "Jumlah", name: "jumlah", widget: "number" }
+
+  - name: "galeri_data"
+    label: "Galeri"
+    files:
+      - name: "galeri"
+        label: "Daftar Foto Galeri"
+        file: "_data/galeri.yml"
+        fields:
+          - label: "Foto"
+            name: "galeri"
+            widget: "list"
+            fields:
+              - { label: "Judul", name: "judul", widget: "string" }
+              - { label: "Gambar", name: "gambar", widget: "image" }
+
+  - name: "pengaturan"
+    label: "Pengaturan Umum"
+    files:
+      - name: "config"
+        label: "Identitas Dusun"
+        file: "_config.yml"
+        fields:
+          - { label: "Judul Website", name: "title", widget: "string" }
+          - { label: "Deskripsi", name: "description", widget: "string" }
+          - label: "Identitas Dusun"
+            name: "dusun"
+            widget: "object"
+            fields:
+              - { label: "Nama Dusun", name: "nama", widget: "string" }
+              - { label: "Desa", name: "desa", widget: "string" }
+              - { label: "Kecamatan", name: "kecamatan", widget: "string" }
+              - { label: "Kabupaten", name: "kabupaten", widget: "string" }
+              - { label: "Provinsi", name: "provinsi", widget: "string" }
+              - { label: "Nama Kepala Dusun", name: "kepala_dusun", widget: "string" }
+              - { label: "Alamat", name: "alamat", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "WhatsApp", name: "whatsapp", widget: "string" }
