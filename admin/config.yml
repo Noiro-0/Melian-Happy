@@ -2,8 +2,7 @@ backend:
   name: git-gateway
   repo: Noiro-0/Melian-Happy   
   branch: main
-  base_url:  https://melian-happy.netlify.app
-  auth_endpoint: auth
+  site_domain: melian-happy.netlify.app
 
 publish_mode: editorial_workflow
 
