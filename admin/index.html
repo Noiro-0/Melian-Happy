@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager - Dusun Melian</title>
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <style>
-    /* Polish untuk layar login Netlify Identity (elemen ini di luar kendali React
-       Decap, jadi aman untuk di-override lewat CSS biasa) */
-    body {
-      background: radial-gradient(120% 140% at 15% 0%, #2D6A4F 0%, #1B4332 45%, #0F2A20 100%) !important;
-    }
-    .netlify-identity-widget iframe { border-radius: 12px; }
-  </style>
 </head>
 <body>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    window.netlifyIdentity = window.netlifyIdentity || {};
+    netlifyIdentity.init({
+      APIUrl: "https://melian-happy.netlify.app/.netlify/identity"
+    });
+  </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
     CMS.registerPreviewStyle("preview.css");
