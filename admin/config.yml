@@ -3,6 +3,8 @@ backend:
   repo: Noiro-0/Melian-Happy
   branch: main
   site_domain: melian-happy.netlify.app
+  identity_url: https://melian-happy.netlify.app/.netlify/identity
+  gateway_url: https://melian-happy.netlify.app/.netlify/git
 
 logo_url: /admin/logo.svg
 
