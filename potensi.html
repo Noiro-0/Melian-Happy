@@ -1,15 +1,21 @@
 ---
-layout: default
+layout: page
+icon: bi-shop
 title: Potensi Dusun
+lede: UMKM, produk unggulan, dan destinasi wisata yang tumbuh dari warga Dusun Melian.
 ---
-# Potensi & Produk Unggulan {{ site.dusun.nama }}
-
 <div class="potensi-grid">
   {% for item in site.potensi %}
-  <a href="{{ item.url | relative_url }}" class="potensi-card">
-    {% if item.image %}<img src="{{ item.image | relative_url }}" alt="{{ item.title }}">{% endif %}
+  <a class="potensi-card" href="{{ item.url | relative_url }}">
+    {% if item.image %}
+      <img class="thumb" src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+    {% else %}
+      <div class="thumb-fallback"><i class="bi bi-image"></i></div>
+    {% endif %}
+    <div class="potensi-kategori">{{ item.kategori }}</div>
     <h3>{{ item.title }}</h3>
-    <p class="potensi-kategori">{{ item.kategori }}</p>
   </a>
+  {% else %}
+  <p>Belum ada data potensi. Tambahkan lewat menu <strong>Potensi Dusun</strong> di CMS.</p>
   {% endfor %}
 </div>

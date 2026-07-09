@@ -1,8 +1,9 @@
 backend:
   name: git-gateway
-  repo: Noiro-0/Melian-Happy   
+  repo: Noiro-0/Melian-Happy
   branch: main
-  
+
+logo_url: /admin/logo.svg
 
 publish_mode: editorial_workflow
 
@@ -43,6 +44,10 @@ collections:
         label: "Halaman Profil & Sejarah"
         file: "profil.html"
         fields:
+          # Field tersembunyi ini WAJIB ada supaya tampilan halaman (layout +
+          # ikon) tidak hilang setiap kali halaman ini disimpan lewat CMS.
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+          - { label: "Icon", name: "icon", widget: "hidden", default: "bi-journal-bookmark" }
           - { label: "Judul Halaman", name: "title", widget: "string" }
           - { label: "Konten", name: "body", widget: "markdown" }
 

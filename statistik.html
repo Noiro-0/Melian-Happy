@@ -1,35 +1,54 @@
 ---
-layout: default
+layout: page
+icon: bi-bar-chart-line
 title: Statistik Kependudukan
+lede: Data kependudukan {{ site.dusun.nama }} yang diperbarui secara berkala.
 ---
-# Statistik Kependudukan {{ site.dusun.nama }}
-<p>Data tahun {{ site.data.statistik.tahun }}</p>
-
+{% assign s = site.data.statistik %}
+{% if s %}
 <div class="stat-grid">
   <div class="stat-card">
-    <span class="stat-number">{{ site.data.statistik.jumlah_kk }}</span>
+    <i class="bi bi-calendar3"></i>
+    <span class="stat-number">{{ s.tahun }}</span>
+    <span class="stat-label">Tahun Data</span>
+  </div>
+  <div class="stat-card">
+    <i class="bi bi-house-door"></i>
+    <span class="stat-number">{{ s.jumlah_kk }}</span>
     <span class="stat-label">Kepala Keluarga</span>
   </div>
   <div class="stat-card">
-    <span class="stat-number">{{ site.data.statistik.jumlah_penduduk }}</span>
-    <span class="stat-label">Total Penduduk</span>
+    <i class="bi bi-people"></i>
+    <span class="stat-number">{{ s.jumlah_penduduk }}</span>
+    <span class="stat-label">Jumlah Penduduk</span>
   </div>
   <div class="stat-card">
-    <span class="stat-number">{{ site.data.statistik.laki_laki }}</span>
+    <i class="bi bi-gender-male"></i>
+    <span class="stat-number">{{ s.laki_laki }}</span>
     <span class="stat-label">Laki-laki</span>
   </div>
   <div class="stat-card">
-    <span class="stat-number">{{ site.data.statistik.perempuan }}</span>
+    <i class="bi bi-gender-female"></i>
+    <span class="stat-number">{{ s.perempuan }}</span>
     <span class="stat-label">Perempuan</span>
   </div>
 </div>
 
-## Mata Pencaharian
-<table class="stat-table">
-  <thead><tr><th>Mata Pencaharian</th><th>Jumlah</th></tr></thead>
-  <tbody>
-  {% for item in site.data.statistik.mata_pencaharian %}
-    <tr><td>{{ item.label }}</td><td>{{ item.jumlah }}</td></tr>
-  {% endfor %}
-  </tbody>
-</table>
+{% if s.mata_pencaharian %}
+<h2><i class="bi bi-briefcase"></i> Mata Pencaharian</h2>
+<div class="stat-table-wrap">
+  <table class="stat-table">
+    <thead>
+      <tr><th>Jenis Pekerjaan</th><th>Jumlah</th></tr>
+    </thead>
+    <tbody>
+      {% for item in s.mata_pencaharian %}
+      <tr><td>{{ item.label }}</td><td>{{ item.jumlah }} orang</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% else %}
+<p>Data statistik belum tersedia. Tambahkan lewat menu <strong>Statistik Kependudukan</strong> di CMS.</p>
+{% endif %}

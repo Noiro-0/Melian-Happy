@@ -1,14 +1,27 @@
 ---
-layout: default
-title: Berita
+layout: page
+icon: bi-megaphone
+title: Berita & Pengumuman
+lede: Kabar terbaru, pengumuman, dan kegiatan dari Dusun Melian.
 ---
-# Berita & Pengumuman {{ site.dusun.nama }}
-
+{% if site.posts.size > 0 %}
 <ul class="post-list">
   {% for post in site.posts %}
   <li>
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <span class="post-date">{{ post.date | date: "%d %B %Y" }}</span>
+    <a class="post-card" href="{{ post.url | relative_url }}">
+      <div class="post-card-date">
+        <span class="day">{{ post.date | date: "%d" }}</span>
+        <span class="mon">{{ post.date | date: "%b" }}</span>
+      </div>
+      <div>
+        <h3>{{ post.title }}</h3>
+        <p class="post-excerpt">{{ post.content | strip_html | truncatewords: 24 }}</p>
+        {% if post.author %}<span class="post-author"><i class="bi bi-person"></i> {{ post.author }}</span>{% endif %}
+      </div>
+    </a>
   </li>
   {% endfor %}
 </ul>
+{% else %}
+<p>Belum ada berita yang dipublikasikan.</p>
+{% endif %}

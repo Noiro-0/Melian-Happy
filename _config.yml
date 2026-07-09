@@ -1,19 +1,19 @@
-title: "Dusun Sukamaju"
-description: "Website Profil Resmi Dusun Sukamaju — Informasi, Berita, dan Potensi Dusun"
+title: "Dusun Melian"
+description: "Website Resmi Dusun Melian, Desa Candi, Kecamatan Pringkuku, Kabupaten Pacitan — Informasi, Berita, dan Potensi Dusun"
 baseurl: ""
 url: "https://Noiro-0.github.io"
 repository: "Noiro-0/Melian-Happy"
 
-# Identitas Dusun (edit sesuai kebutuhan lewat CMS: Pengaturan Umum)
+# Identitas Dusun (edit lewat CMS: menu "Pengaturan Umum")
 dusun:
-  nama: "Dusun Sukamaju"
-  desa: "Desa Makmur"
-  kecamatan: "Kecamatan Sejahtera"
-  kabupaten: "Kabupaten Bahagia"
+  nama: "Dusun Melian"
+  desa: "Candi"
+  kecamatan: "Pringkuku"
+  kabupaten: "Pacitan"
   provinsi: "Jawa Timur"
-  kepala_dusun: "Bapak Suherman"
-  alamat: "Jl. Raya Sukamaju No. 1"
-  email: "dusunsukamaju@example.com"
+  kepala_dusun: "Bapak Wahyu Santoso"
+  alamat: "Dusun Melian, Desa Candi, Kec. Pringkuku, Kab. Pacitan, Jawa Timur"
+  email: "dusunmelian@example.com"
   whatsapp: "081234567890"
 
 collections:

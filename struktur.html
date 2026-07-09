@@ -1,15 +1,21 @@
 ---
-layout: default
+layout: page
+icon: bi-diagram-3
 title: Struktur Organisasi
+lede: Perangkat dan pengurus yang menjalankan roda pemerintahan Dusun Melian.
 ---
-# Struktur Organisasi {{ site.dusun.nama }}
-
 <div class="perangkat-grid">
-  {% for orang in site.data.perangkat %}
+  {% for orang in site.data.perangkat.perangkat %}
   <div class="perangkat-card">
-    {% if orang.foto %}<img src="{{ orang.foto | relative_url }}" alt="{{ orang.nama }}">{% endif %}
+    {% if orang.foto %}
+      <img class="avatar" src="{{ orang.foto | relative_url }}" alt="{{ orang.nama }}">
+    {% else %}
+      <div class="avatar-fallback"><i class="bi bi-person"></i></div>
+    {% endif %}
     <h3>{{ orang.nama }}</h3>
     <p>{{ orang.jabatan }}</p>
   </div>
+  {% else %}
+  <p>Data perangkat dusun belum tersedia. Tambahkan lewat menu <strong>Struktur Organisasi</strong> di CMS.</p>
   {% endfor %}
 </div>

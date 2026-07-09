@@ -3,45 +3,105 @@ layout: default
 title: Beranda
 ---
 <section class="hero">
-  <h1>Selamat Datang di {{ site.dusun.nama }}</h1>
-  <p>{{ site.dusun.desa }}, {{ site.dusun.kecamatan }}, {{ site.dusun.kabupaten }}, {{ site.dusun.provinsi }}</p>
+  <div class="hero-peaks" aria-hidden="true">
+    <svg viewBox="0 0 1200 500" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,500 L0,300 L200,180 L340,260 L520,120 L680,240 L860,100 L1040,220 L1200,150 L1200,500 Z" fill="#2D6A4F" opacity="0.55"/>
+      <path d="M0,500 L0,380 L150,300 L300,360 L480,260 L650,340 L820,240 L1000,330 L1200,270 L1200,500 Z" fill="#1B4332" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <span class="eyebrow"><i class="bi bi-geo-alt-fill"></i> Desa {{ site.dusun.desa }} &middot; Kec. {{ site.dusun.kecamatan }} &middot; {{ site.dusun.kabupaten }}</span>
+    <h1>Selamat Datang di {{ site.dusun.nama }}</h1>
+    <p class="hero-lede">
+      Dusun dataran tinggi di lereng Gunung Limo — udara sejuk, panorama perbukitan,
+      dan warga yang hidup dari bertani serta menjaga tradisi gotong royong dari
+      generasi ke generasi.
+    </p>
+    <div class="hero-actions">
+      <a href="{{ '/profil.html' | relative_url }}" class="btn btn-gold"><i class="bi bi-journal-bookmark"></i> Profil & Sejarah</a>
+      <a href="{{ '/kontak.html' | relative_url }}" class="btn btn-outline"><i class="bi bi-telephone"></i> Hubungi Kami</a>
+    </div>
+    <div class="hero-meta">
+      <span><i class="bi bi-signpost-2"></i> {{ site.dusun.alamat }}</span>
+      <span><i class="bi bi-person-badge"></i> Kepala Dusun: {{ site.dusun.kepala_dusun }}</span>
+    </div>
+  </div>
+
+  {% include ridge.html %}
 </section>
 
-<section class="quick-links">
-  <a href="{{ '/profil.html' | relative_url }}" class="quick-card">
-    <h3>Profil & Sejarah</h3>
-    <p>Sejarah dan gambaran umum dusun</p>
-  </a>
-  <a href="{{ '/struktur.html' | relative_url }}" class="quick-card">
-    <h3>Struktur Organisasi</h3>
-    <p>Perangkat dan pengurus dusun</p>
-  </a>
-  <a href="{{ '/statistik.html' | relative_url }}" class="quick-card">
-    <h3>Statistik</h3>
-    <p>Data kependudukan dusun</p>
-  </a>
-  <a href="{{ '/potensi.html' | relative_url }}" class="quick-card">
-    <h3>Potensi Dusun</h3>
-    <p>UMKM, wisata, dan produk unggulan</p>
-  </a>
-  <a href="{{ '/galeri.html' | relative_url }}" class="quick-card">
-    <h3>Galeri</h3>
-    <p>Dokumentasi kegiatan dusun</p>
-  </a>
-  <a href="{{ '/berita.html' | relative_url }}" class="quick-card">
-    <h3>Berita</h3>
-    <p>Pengumuman dan kabar terbaru</p>
-  </a>
-</section>
+<div class="container">
+  <section class="quick-links">
+    <a href="{{ '/profil.html' | relative_url }}" class="quick-card">
+      <i class="bi bi-journal-bookmark"></i>
+      <h3>Profil & Sejarah</h3>
+      <p>Sejarah dan gambaran umum dusun</p>
+    </a>
+    <a href="{{ '/struktur.html' | relative_url }}" class="quick-card">
+      <i class="bi bi-diagram-3"></i>
+      <h3>Struktur Organisasi</h3>
+      <p>Perangkat dan pengurus dusun</p>
+    </a>
+    <a href="{{ '/statistik.html' | relative_url }}" class="quick-card">
+      <i class="bi bi-bar-chart-line"></i>
+      <h3>Statistik</h3>
+      <p>Data kependudukan dusun</p>
+    </a>
+    <a href="{{ '/potensi.html' | relative_url }}" class="quick-card">
+      <i class="bi bi-shop"></i>
+      <h3>Potensi Dusun</h3>
+      <p>UMKM, wisata, dan produk unggulan</p>
+    </a>
+    <a href="{{ '/galeri.html' | relative_url }}" class="quick-card">
+      <i class="bi bi-images"></i>
+      <h3>Galeri</h3>
+      <p>Dokumentasi kegiatan dusun</p>
+    </a>
+    <a href="{{ '/berita.html' | relative_url }}" class="quick-card">
+      <i class="bi bi-megaphone"></i>
+      <h3>Berita</h3>
+      <p>Pengumuman dan kabar terbaru</p>
+    </a>
+  </section>
 
-<section class="latest-news">
-  <h2>Berita Terbaru</h2>
-  <ul class="post-list">
-    {% for post in site.posts limit:3 %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span class="post-date">{{ post.date | date: "%d %B %Y" }}</span>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow"><i class="bi bi-megaphone"></i> Kabar dusun</span>
+        <h2>Berita Terbaru</h2>
+      </div>
+      <a href="{{ '/berita.html' | relative_url }}" class="see-all">Lihat semua berita <i class="bi bi-arrow-right"></i></a>
+    </div>
+
+    {% if site.posts.size > 0 %}
+    <ul class="post-list">
+      {% for post in site.posts limit:3 %}
+      <li>
+        <a class="post-card" href="{{ post.url | relative_url }}">
+          <div class="post-card-date">
+            <span class="day">{{ post.date | date: "%d" }}</span>
+            <span class="mon">{{ post.date | date: "%b" }}</span>
+          </div>
+          <div>
+            <h3>{{ post.title }}</h3>
+            <p class="post-excerpt">{{ post.content | strip_html | truncatewords: 20 }}</p>
+            {% if post.author %}<span class="post-author"><i class="bi bi-person"></i> {{ post.author }}</span>{% endif %}
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>Belum ada berita yang dipublikasikan.</p>
+    {% endif %}
+  </section>
+
+  <section class="cta-band">
+    <div>
+      <h3><i class="bi bi-people"></i> Kenali Potensi {{ site.dusun.nama }}</h3>
+      <p>UMKM, produk unggulan, dan destinasi wisata dari warga dusun kami.</p>
+    </div>
+    <a href="{{ '/potensi.html' | relative_url }}" class="btn btn-gold">Jelajahi Potensi <i class="bi bi-arrow-right"></i></a>
+  </section>
+</div>

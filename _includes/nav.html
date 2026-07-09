@@ -1,13 +1,39 @@
 <nav class="navbar">
-  <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.dusun.nama }}</a>
-  <div class="nav-links">
-    <a href="{{ '/' | relative_url }}">Beranda</a>
-    <a href="{{ '/profil.html' | relative_url }}">Profil</a>
-    <a href="{{ '/struktur.html' | relative_url }}">Struktur</a>
-    <a href="{{ '/statistik.html' | relative_url }}">Statistik</a>
-    <a href="{{ '/potensi.html' | relative_url }}">Potensi</a>
-    <a href="{{ '/galeri.html' | relative_url }}">Galeri</a>
-    <a href="{{ '/berita.html' | relative_url }}">Berita</a>
-    <a href="{{ '/kontak.html' | relative_url }}">Kontak</a>
+  <div class="navbar-inner">
+    <a class="nav-brand" href="{{ '/' | relative_url }}">
+      <i class="bi bi-tree-fill"></i>
+      <span>
+        {{ site.dusun.nama }}
+        <small>Desa {{ site.dusun.desa }} &middot; {{ site.dusun.kabupaten }}</small>
+      </span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="{{ '/' | relative_url }}"><i class="bi bi-house-door"></i> Beranda</a>
+      <a href="{{ '/profil.html' | relative_url }}"><i class="bi bi-journal-bookmark"></i> Profil</a>
+      <a href="{{ '/struktur.html' | relative_url }}"><i class="bi bi-diagram-3"></i> Struktur</a>
+      <a href="{{ '/statistik.html' | relative_url }}"><i class="bi bi-bar-chart-line"></i> Statistik</a>
+      <a href="{{ '/potensi.html' | relative_url }}"><i class="bi bi-shop"></i> Potensi</a>
+      <a href="{{ '/galeri.html' | relative_url }}"><i class="bi bi-images"></i> Galeri</a>
+      <a href="{{ '/berita.html' | relative_url }}"><i class="bi bi-megaphone"></i> Berita</a>
+      <a href="{{ '/kontak.html' | relative_url }}"><i class="bi bi-geo-alt"></i> Kontak</a>
+    </div>
   </div>
 </nav>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (!toggle || !links) return;
+    toggle.addEventListener('click', function () {
+      var isOpen = links.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.innerHTML = isOpen ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+    });
+  })();
+</script>

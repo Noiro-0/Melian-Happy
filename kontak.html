@@ -1,20 +1,42 @@
 ---
-layout: default
-title: Kontak
+layout: page
+icon: bi-geo-alt
+title: Hubungi Kami
+lede: Sampaikan pertanyaan, saran, atau laporan Anda kepada perangkat Dusun Melian.
 ---
-# Kontak {{ site.dusun.nama }}
+<div class="kontak-grid">
+  <div class="kontak-info">
+    <div class="kontak-row">
+      <i class="bi bi-signpost-2"></i>
+      <div><strong>Alamat</strong>{{ site.dusun.alamat }}</div>
+    </div>
+    <div class="kontak-row">
+      <i class="bi bi-person-badge"></i>
+      <div><strong>Kepala Dusun</strong>{{ site.dusun.kepala_dusun }}</div>
+    </div>
+    <div class="kontak-row">
+      <i class="bi bi-envelope"></i>
+      <div><strong>Email</strong>{{ site.dusun.email }}</div>
+    </div>
+    <div class="kontak-row">
+      <i class="bi bi-whatsapp"></i>
+      <div><strong>WhatsApp</strong>{{ site.dusun.whatsapp }}</div>
+    </div>
+    <div class="kontak-row">
+      <i class="bi bi-map"></i>
+      <div><strong>Wilayah Administratif</strong>Desa {{ site.dusun.desa }}, Kec. {{ site.dusun.kecamatan }}, {{ site.dusun.kabupaten }}, {{ site.dusun.provinsi }}</div>
+    </div>
+  </div>
 
-<div class="kontak-info">
-  <p><strong>Kepala Dusun:</strong> {{ site.dusun.kepala_dusun }}</p>
-  <p><strong>Alamat:</strong> {{ site.dusun.alamat }}</p>
-  <p><strong>Email:</strong> {{ site.dusun.email }}</p>
-  <p><strong>WhatsApp:</strong> {{ site.dusun.whatsapp }}</p>
+  <div class="map-wrapper">
+    <iframe
+      src="https://www.openstreetmap.org/export/embed.html?bbox=110.98%2C-8.28%2C111.06%2C-8.20&amp;layer=mapnik&amp;marker=-8.24%2C111.02"
+      loading="lazy"
+      title="Peta lokasi perkiraan {{ site.dusun.nama }}">
+    </iframe>
+  </div>
 </div>
-
-## Lokasi
-<div class="map-wrapper">
-  <iframe
-    src="https://maps.google.com/maps?q={{ site.dusun.nama | url_encode }}&t=&z=13&ie=UTF8&iwloc=&output=embed"
-    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
-  </iframe>
-</div>
+<p style="margin-top:1rem; font-size:0.85rem; color:var(--muted);">
+  <i class="bi bi-info-circle"></i> Titik pada peta menunjukkan lokasi perkiraan wilayah
+  Kecamatan {{ site.dusun.kecamatan }}. Perbarui koordinat sesuai lokasi pasti dusun bila diperlukan.
+</p>

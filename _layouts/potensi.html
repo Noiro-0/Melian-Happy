@@ -1,12 +1,27 @@
 ---
 layout: default
 ---
-<article class="potensi-detail">
-  <h1>{{ page.title }}</h1>
-  <p class="potensi-kategori">Kategori: {{ page.kategori }}</p>
-  {% if page.image %}<img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="post-image">{% endif %}
-  <div class="post-content">
-    {{ content }}
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <i class="bi bi-shop"></i>
+    {% if page.kategori %}<div class="badge" style="margin-bottom:0.75rem;">{{ page.kategori }}</div>{% endif %}
+    <h1>{{ page.title }}</h1>
   </div>
-  <p><a href="{{ '/potensi.html' | relative_url }}">&larr; Kembali ke Potensi Dusun</a></p>
+  {% include ridge.html %}
+</section>
+
+<article class="container page-body">
+  <div class="page-body-inner">
+    {% if page.image %}
+      <img class="potensi-single-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    {% endif %}
+
+    <div class="post-body">
+      {{ content }}
+    </div>
+
+    <a class="back-link" href="{{ '/potensi.html' | relative_url }}">
+      <i class="bi bi-arrow-left"></i> Kembali ke semua potensi
+    </a>
+  </div>
 </article>

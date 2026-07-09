@@ -1,14 +1,18 @@
 ---
-layout: default
-title: Galeri Kegiatan
+layout: page
+icon: bi-images
+title: Galeri
+lede: Dokumentasi kegiatan dan keseharian warga Dusun Melian.
 ---
-# Galeri Kegiatan {{ site.dusun.nama }}
-
 <div class="gallery-grid">
-  {% for foto in site.data.galeri %}
+  {% for foto in site.data.galeri.galeri %}
   <figure class="gallery-item">
-    <img src="{{ foto.gambar | relative_url }}" alt="{{ foto.judul }}">
+    <div class="frame">
+      <img src="{{ foto.gambar | relative_url }}" alt="{{ foto.judul }}" loading="lazy">
+    </div>
     <figcaption>{{ foto.judul }}</figcaption>
   </figure>
+  {% else %}
+  <p>Belum ada foto galeri. Tambahkan lewat menu <strong>Galeri</strong> di CMS.</p>
   {% endfor %}
 </div>

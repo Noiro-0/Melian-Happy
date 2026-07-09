@@ -1,4 +1,42 @@
 <footer class="site-footer">
-  <p>&copy; {{ 'now' | date: "%Y" }} {{ site.dusun.nama }}, {{ site.dusun.desa }}, {{ site.dusun.kecamatan }}.</p>
-  <p>{{ site.dusun.alamat }} &middot; {{ site.dusun.email }}</p>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <a href="{{ '/' | relative_url }}" class="footer-brand">
+        <i class="bi bi-tree-fill"></i> {{ site.dusun.nama }}
+      </a>
+      <p>
+        {{ site.dusun.nama }} adalah bagian dari {{ site.dusun.desa }},
+        {{ site.dusun.kecamatan }}, {{ site.dusun.kabupaten }}, {{ site.dusun.provinsi }} —
+        dusun dataran tinggi yang dikelilingi perbukitan dan menjadi rumah bagi warga
+        yang hidup dari bertani dan menjaga gotong royong.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Jelajahi</h4>
+      <ul class="footer-links">
+        <li><a href="{{ '/profil.html' | relative_url }}"><i class="bi bi-chevron-right"></i> Profil &amp; Sejarah</a></li>
+        <li><a href="{{ '/struktur.html' | relative_url }}"><i class="bi bi-chevron-right"></i> Struktur Organisasi</a></li>
+        <li><a href="{{ '/statistik.html' | relative_url }}"><i class="bi bi-chevron-right"></i> Statistik</a></li>
+        <li><a href="{{ '/potensi.html' | relative_url }}"><i class="bi bi-chevron-right"></i> Potensi Dusun</a></li>
+        <li><a href="{{ '/galeri.html' | relative_url }}"><i class="bi bi-chevron-right"></i> Galeri</a></li>
+        <li><a href="{{ '/berita.html' | relative_url }}"><i class="bi bi-chevron-right"></i> Berita</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <ul class="footer-contact">
+        <li><i class="bi bi-geo-alt"></i> {{ site.dusun.alamat }}</li>
+        <li><i class="bi bi-envelope"></i> {{ site.dusun.email }}</li>
+        <li><i class="bi bi-whatsapp"></i> {{ site.dusun.whatsapp }}</li>
+        <li><i class="bi bi-person-badge"></i> Kepala Dusun: {{ site.dusun.kepala_dusun }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.dusun.nama }}, {{ site.dusun.desa }}, {{ site.dusun.kabupaten }}. Seluruh hak cipta dilindungi.</p>
+    <p>Dikelola oleh perangkat {{ site.dusun.nama }} &middot; Dibangun dengan Jekyll &amp; Decap CMS</p>
+  </div>
 </footer>
