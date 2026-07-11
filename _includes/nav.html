@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" id="mainNav">
   <div class="navbar-inner">
     <a class="nav-brand" href="{{ '/' | relative_url }}">
       <img class="nav-logo" src="{{ '/admin/logo.svg' | relative_url }}" alt="Logo {{ site.dusun.nama }}">
@@ -13,15 +13,18 @@
     </button>
 
     <div class="nav-links" id="navLinks">
-      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}is-active{% endif %}"><i class="bi bi-house-door"></i> Beranda</a>
-      <a href="{{ '/profil.html' | relative_url }}" class="{% if page.url == '/profil.html' %}is-active{% endif %}"><i class="bi bi-journal-bookmark"></i> Profil</a>
-      <a href="{{ '/struktur.html' | relative_url }}" class="{% if page.url == '/struktur.html' %}is-active{% endif %}"><i class="bi bi-diagram-3"></i> Struktur</a>
-      <a href="{{ '/statistik.html' | relative_url }}" class="{% if page.url == '/statistik.html' %}is-active{% endif %}"><i class="bi bi-bar-chart-line"></i> Statistik</a>
-      <a href="{{ '/potensi.html' | relative_url }}" class="{% if page.url == '/potensi.html' %}is-active{% endif %}"><i class="bi bi-shop"></i> Potensi</a>
-      <a href="{{ '/galeri.html' | relative_url }}" class="{% if page.url == '/galeri.html' %}is-active{% endif %}"><i class="bi bi-images"></i> Galeri</a>
-      <a href="{{ '/berita.html' | relative_url }}" class="{% if page.url == '/berita.html' %}is-active{% endif %}"><i class="bi bi-megaphone"></i> Berita</a>
-      <a href="{{ '/kontak.html' | relative_url }}" class="{% if page.url == '/kontak.html' %}is-active{% endif %}"><i class="bi bi-geo-alt"></i> Kontak</a>
+      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}is-active{% endif %}">Beranda</a>
+      <a href="{{ '/profil.html' | relative_url }}" class="{% if page.url == '/profil.html' %}is-active{% endif %}">Profil</a>
+      <a href="{{ '/struktur.html' | relative_url }}" class="{% if page.url == '/struktur.html' %}is-active{% endif %}">Struktur</a>
+      <a href="{{ '/statistik.html' | relative_url }}" class="{% if page.url == '/statistik.html' %}is-active{% endif %}">Statistik</a>
+      <a href="{{ '/potensi.html' | relative_url }}" class="{% if page.url == '/potensi.html' %}is-active{% endif %}">Potensi</a>
+      <a href="{{ '/galeri.html' | relative_url }}" class="{% if page.url == '/galeri.html' %}is-active{% endif %}">Galeri</a>
+      <a href="{{ '/berita.html' | relative_url }}" class="{% if page.url == '/berita.html' %}is-active{% endif %}">Berita</a>
     </div>
+
+    <a href="{{ '/kontak.html' | relative_url }}" class="nav-cta">
+      <i class="bi bi-telephone-fill"></i> Kontak
+    </a>
   </div>
 </nav>
 
@@ -34,6 +37,16 @@
       var isOpen = links.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       toggle.innerHTML = isOpen ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+    });
+
+    // Navbar scroll effect
+    var nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
     });
   })();
 </script>
