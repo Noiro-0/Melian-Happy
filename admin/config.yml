@@ -30,8 +30,6 @@ site_url: https://melianhappy.vercel.app
 
 logo_url: /admin/logo.svg
 
-publish_mode: editorial_workflow
-
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
 

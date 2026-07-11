@@ -3,6 +3,7 @@ description: "Website Resmi Dusun Melian, Desa Candi, Kecamatan Pringkuku, Kabup
 baseurl: ""
 url: "https://Noiro-0.github.io"
 repository: "Noiro-0/Melian-Happy"
+future: true
 
 # Identitas Dusun (edit lewat CMS: menu "Pengaturan Umum")
 dusun:
