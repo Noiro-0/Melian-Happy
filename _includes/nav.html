@@ -1,7 +1,7 @@
 <nav class="navbar">
   <div class="navbar-inner">
     <a class="nav-brand" href="{{ '/' | relative_url }}">
-      <i class="bi bi-tree-fill"></i>
+      <img class="nav-logo" src="{{ '/admin/logo.svg' | relative_url }}" alt="Logo {{ site.dusun.nama }}">
       <span>
         {{ site.dusun.nama }}
         <small>Desa {{ site.dusun.desa }} &middot; {{ site.dusun.kabupaten }}</small>
@@ -13,14 +13,14 @@
     </button>
 
     <div class="nav-links" id="navLinks">
-      <a href="{{ '/' | relative_url }}"><i class="bi bi-house-door"></i> Beranda</a>
-      <a href="{{ '/profil.html' | relative_url }}"><i class="bi bi-journal-bookmark"></i> Profil</a>
-      <a href="{{ '/struktur.html' | relative_url }}"><i class="bi bi-diagram-3"></i> Struktur</a>
-      <a href="{{ '/statistik.html' | relative_url }}"><i class="bi bi-bar-chart-line"></i> Statistik</a>
-      <a href="{{ '/potensi.html' | relative_url }}"><i class="bi bi-shop"></i> Potensi</a>
-      <a href="{{ '/galeri.html' | relative_url }}"><i class="bi bi-images"></i> Galeri</a>
-      <a href="{{ '/berita.html' | relative_url }}"><i class="bi bi-megaphone"></i> Berita</a>
-      <a href="{{ '/kontak.html' | relative_url }}"><i class="bi bi-geo-alt"></i> Kontak</a>
+      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}is-active{% endif %}"><i class="bi bi-house-door"></i> Beranda</a>
+      <a href="{{ '/profil.html' | relative_url }}" class="{% if page.url == '/profil.html' %}is-active{% endif %}"><i class="bi bi-journal-bookmark"></i> Profil</a>
+      <a href="{{ '/struktur.html' | relative_url }}" class="{% if page.url == '/struktur.html' %}is-active{% endif %}"><i class="bi bi-diagram-3"></i> Struktur</a>
+      <a href="{{ '/statistik.html' | relative_url }}" class="{% if page.url == '/statistik.html' %}is-active{% endif %}"><i class="bi bi-bar-chart-line"></i> Statistik</a>
+      <a href="{{ '/potensi.html' | relative_url }}" class="{% if page.url == '/potensi.html' %}is-active{% endif %}"><i class="bi bi-shop"></i> Potensi</a>
+      <a href="{{ '/galeri.html' | relative_url }}" class="{% if page.url == '/galeri.html' %}is-active{% endif %}"><i class="bi bi-images"></i> Galeri</a>
+      <a href="{{ '/berita.html' | relative_url }}" class="{% if page.url == '/berita.html' %}is-active{% endif %}"><i class="bi bi-megaphone"></i> Berita</a>
+      <a href="{{ '/kontak.html' | relative_url }}" class="{% if page.url == '/kontak.html' %}is-active{% endif %}"><i class="bi bi-geo-alt"></i> Kontak</a>
     </div>
   </div>
 </nav>
