@@ -37,5 +37,36 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script>
+    if (window['pdfjs-dist/build/pdf']) {
+      const pdfjsLib = window['pdfjs-dist/build/pdf'];
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
+      document.addEventListener("DOMContentLoaded", function() {
+        const pdfCanvasElements = document.querySelectorAll('.pdf-thumbnail-canvas');
+        pdfCanvasElements.forEach(canvas => {
+          const url = canvas.getAttribute('data-pdf-url');
+          if (!url) return;
+
+          pdfjsLib.getDocument(url).promise.then(function(pdf) {
+            pdf.getPage(1).then(function(page) {
+              const viewport = page.getViewport({ scale: 1.5 });
+              canvas.height = viewport.height;
+              canvas.width = viewport.width;
+
+              const renderContext = {
+                canvasContext: canvas.getContext('2d'),
+                viewport: viewport
+              };
+              page.render(renderContext);
+            });
+          }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            canvas.parentElement.innerHTML = '<div style="display:flex; align-items:center; justify-content:center; height:100%; color:var(--muted);"><i class="bi bi-file-earmark-pdf" style="font-size:3rem;"></i></div>';
+          });
+        });
+      });
+    }
+  </script>
 </footer>

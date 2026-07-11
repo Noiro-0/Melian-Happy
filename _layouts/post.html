@@ -18,8 +18,21 @@ layout: default
 
     {% if page.image %}
       <img class="post-hero-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    {% elsif page.pdf_file %}
+      <div class="post-hero-image" style="height: 400px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #eee; position: relative;">
+        <canvas class="pdf-thumbnail-canvas" data-pdf-url="{{ page.pdf_file | relative_url }}" style="width: 100%; height: auto; object-fit: cover;"></canvas>
+        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;">
+          <a href="{{ page.pdf_file | relative_url }}" target="_blank" class="btn btn-gold"><i class="bi bi-file-earmark-pdf"></i> Lihat / Unduh PDF</a>
+        </div>
+      </div>
     {% elsif page.bg_color %}
       <div class="post-hero-image" style="background: {{ page.bg_color }}; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;"><i class="bi bi-newspaper"></i></div>
+    {% endif %}
+
+    {% if page.pdf_file and page.image %}
+      <div style="margin-bottom: 2rem;">
+        <a href="{{ page.pdf_file | relative_url }}" target="_blank" class="btn btn-outline-hero" style="color: var(--pine); border-color: var(--pine);"><i class="bi bi-file-earmark-pdf"></i> Lihat Dokumen PDF</a>
+      </div>
     {% endif %}
 
     <div class="post-body">

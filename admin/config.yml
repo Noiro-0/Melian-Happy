@@ -65,6 +65,7 @@ collections:
             value: "#1e3a5f"
         default: "var(--pine-dark)"
         required: false
+      - { label: "Dokumen PDF (Opsional)", name: "pdf_file", widget: "file", required: false, allow_multiple: false, choose_url: false }
       - { label: "Isi Berita", name: "body", widget: "markdown" }
 
   - name: "potensi"
@@ -95,6 +96,7 @@ collections:
             value: "#1e3a5f"
         default: "var(--pine-dark)"
         required: false
+      - { label: "Dokumen PDF (Opsional)", name: "pdf_file", widget: "file", required: false, allow_multiple: false, choose_url: false }
       - { label: "Deskripsi", name: "body", widget: "markdown" }
 
   - name: "profil"
