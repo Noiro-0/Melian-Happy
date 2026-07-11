@@ -18,6 +18,8 @@ layout: default
 
     {% if page.image %}
       <img class="post-hero-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    {% elsif page.bg_color %}
+      <div class="post-hero-image" style="background: {{ page.bg_color }}; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;"><i class="bi bi-newspaper"></i></div>
     {% endif %}
 
     <div class="post-body">

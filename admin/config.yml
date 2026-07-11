@@ -51,6 +51,22 @@ collections:
         widget: "list"
         required: false
       - { label: "Gambar Sampul", name: "image", widget: "image", required: false }
+      - label: "Warna Latar (Jika Tanpa Gambar)"
+        name: "bg_color"
+        widget: "select"
+        options: 
+          - label: "Hijau Gelap (Bawaan)"
+            value: "var(--pine-dark)"
+          - label: "Hijau Cemara"
+            value: "var(--pine)"
+          - label: "Kuning Emas"
+            value: "var(--gold)"
+          - label: "Merah Bata"
+            value: "#a14036"
+          - label: "Biru Tua"
+            value: "#1e3a5f"
+        default: "var(--pine-dark)"
+        required: false
       - { label: "Isi Berita", name: "body", widget: "markdown" }
 
   - name: "potensi"
@@ -65,6 +81,22 @@ collections:
         widget: "select"
         options: ["UMKM", "Wisata", "Produk Unggulan", "Lainnya"]
       - { label: "Gambar", name: "image", widget: "image", required: false }
+      - label: "Warna Latar (Jika Tanpa Gambar)"
+        name: "bg_color"
+        widget: "select"
+        options: 
+          - label: "Hijau Gelap (Bawaan)"
+            value: "var(--pine-dark)"
+          - label: "Hijau Cemara"
+            value: "var(--pine)"
+          - label: "Kuning Emas"
+            value: "var(--gold)"
+          - label: "Merah Bata"
+            value: "#a14036"
+          - label: "Biru Tua"
+            value: "#1e3a5f"
+        default: "var(--pine-dark)"
+        required: false
       - { label: "Deskripsi", name: "body", widget: "markdown" }
 
   - name: "profil"

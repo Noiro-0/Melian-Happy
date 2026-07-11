@@ -10,7 +10,7 @@ lede: UMKM, produk unggulan, dan destinasi wisata yang tumbuh dari warga Dusun M
     {% if item.image %}
       <img class="thumb" src="{{ item.image | relative_url }}" alt="{{ item.title }}">
     {% else %}
-      <div class="thumb-fallback"><i class="bi bi-image"></i></div>
+      <div class="thumb-fallback" {% if item.bg_color %}style="background: {{ item.bg_color }}; border-color: transparent; color: white;"{% endif %}><i class="bi bi-image"></i></div>
     {% endif %}
     <div class="potensi-kategori">{{ item.kategori }}</div>
     <h3>{{ item.title }}</h3>

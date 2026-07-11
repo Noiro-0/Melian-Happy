@@ -12,7 +12,7 @@ lede: Kabar terbaru, pengumuman, dan kegiatan dari Dusun Melian.
       {% if post.image %}
       <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
       {% else %}
-      <div class="news-card-placeholder">
+      <div class="news-card-placeholder" {% if post.bg_color %}style="background: {{ post.bg_color }};"{% endif %}>
         <i class="bi bi-newspaper"></i>
       </div>
       {% endif %}
