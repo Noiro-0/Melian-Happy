@@ -340,7 +340,7 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
   font-weight: 600;
   flex-shrink: 0;
   transition: all 0.25s ease;
-  border: 2px solid var(--pine);
+  border: none;
 }
 .nav-cta:hover {
   background: var(--gold);
@@ -578,7 +578,7 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
   align-items: center;
   gap: 0.75rem;
   background: var(--pine);
-  border: 1px solid var(--pine-light);
+  border: none;
   border-radius: var(--radius-sm);
   padding: 0.85rem 1rem;
   color: #fff;
@@ -951,9 +951,9 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
    Page hero (inner pages)
    ========================================================================== */
 .page-hero {
-  background: linear-gradient(135deg, var(--pine-dark) 0%, var(--pine) 60%, var(--pine-light) 100%);
-  color: #fff;
   position: relative;
+  background: var(--pine-dark);
+  color: #fff;
   overflow: hidden;
 }
 .page-hero::before {
