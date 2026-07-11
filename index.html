@@ -43,11 +43,9 @@ title: Beranda
         <a href="{{ '/profil' | relative_url }}" class="btn btn-gold"><i class="bi bi-journal-bookmark"></i> Profil & Sejarah</a>
         <a href="{{ '/kontak' | relative_url }}" class="btn btn-outline-hero"><i class="bi bi-telephone"></i> Hubungi Kami</a>
       </div>
-    </div>
-
-    <!-- Info badges -->
-    <div class="hero-card-visual">
-      <div class="hero-badge-stack">
+      
+      <!-- Info badges (moved to left) -->
+      <div class="hero-badge-stack" style="margin-top: 2rem;">
         <div class="hero-badge-item">
           <i class="bi bi-signpost-2"></i>
           <span>{{ site.dusun.alamat }}</span>
@@ -57,6 +55,10 @@ title: Beranda
           <span>Kepala Dusun: {{ site.dusun.kepala_dusun }}</span>
         </div>
       </div>
+    </div>
+
+    <!-- Empty visual section to maintain flex layout balance -->
+    <div class="hero-card-visual">
     </div>
   </div>
 </section>

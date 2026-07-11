@@ -13,14 +13,14 @@
     </button>
 
     <div class="nav-links" id="navLinks">
-      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}is-active{% endif %}">Beranda</a>
-      <a href="{{ '/profil' | relative_url }}" class="{% if page.url == '/profil.html' %}is-active{% endif %}">Profil</a>
-      <a href="{{ '/struktur' | relative_url }}" class="{% if page.url == '/struktur.html' %}is-active{% endif %}">Struktur</a>
-      <a href="{{ '/statistik' | relative_url }}" class="{% if page.url == '/statistik.html' %}is-active{% endif %}">Statistik</a>
-      <a href="{{ '/potensi' | relative_url }}" class="{% if page.url == '/potensi.html' %}is-active{% endif %}">Potensi</a>
-      <a href="{{ '/galeri' | relative_url }}" class="{% if page.url == '/galeri.html' %}is-active{% endif %}">Galeri</a>
-      <a href="{{ '/berita' | relative_url }}" class="{% if page.url == '/berita.html' %}is-active{% endif %}">Berita</a>
-      <a href="{{ '/#kontak' | relative_url }}" class="{% if page.url == '/#kontak' %}is-active{% endif %}">Kontak</a>
+      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' or page.url == '/index.html' %}is-active{% endif %}">Beranda</a>
+      <a href="{{ '/profil' | relative_url }}" class="{% if page.url contains '/profil' %}is-active{% endif %}">Profil</a>
+      <a href="{{ '/struktur' | relative_url }}" class="{% if page.url contains '/struktur' %}is-active{% endif %}">Struktur</a>
+      <a href="{{ '/statistik' | relative_url }}" class="{% if page.url contains '/statistik' %}is-active{% endif %}">Statistik</a>
+      <a href="{{ '/potensi' | relative_url }}" class="{% if page.url contains '/potensi' %}is-active{% endif %}">Potensi</a>
+      <a href="{{ '/galeri' | relative_url }}" class="{% if page.url contains '/galeri' %}is-active{% endif %}">Galeri</a>
+      <a href="{{ '/berita' | relative_url }}" class="{% if page.url contains '/berita' %}is-active{% endif %}">Berita</a>
+      <a href="{{ '/#kontak' | relative_url }}" class="{% if page.url contains '/#kontak' %}is-active{% endif %}">Kontak</a>
     </div>
 
     <a href="{{ '/admin' | relative_url }}" class="nav-cta">Login</a>

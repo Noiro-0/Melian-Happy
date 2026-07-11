@@ -115,13 +115,12 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
 }
 
 .btn-outline-hero {
-  border-color: var(--pine-light);
+  border: none;
   color: #fff;
   background: var(--pine);
 }
 .btn-outline-hero:hover {
   background: var(--pine-dark);
-  border-color: var(--pine);
 }
 
 .btn-line {
@@ -1047,7 +1046,6 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
 }
 .stat-card {
   background: var(--pine);
-  background-image: linear-gradient(160deg, var(--pine-light), var(--pine) 70%);
   color: #fff;
   border-radius: var(--radius);
   padding: 1.5rem 1.25rem;
@@ -1164,12 +1162,13 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
   border-radius: var(--radius);
   padding: 1.6rem;
   box-shadow: var(--shadow-sm);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 .kontak-row {
   display: flex;
+  flex: 1 1 260px;
   gap: 0.85rem;
   padding: 0.5rem 0;
 }
