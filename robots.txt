@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://melianhappy.vercel.app/sitemap.xml

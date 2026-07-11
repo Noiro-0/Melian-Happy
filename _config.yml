@@ -1,8 +1,12 @@
 title: "Dusun Melian"
 description: "Website Resmi Dusun Melian, Desa Candi, Kecamatan Pringkuku, Kabupaten Pacitan — Informasi, Berita, dan Potensi Dusun"
 baseurl: ""
-url: "https://Noiro-0.github.io"
+url: "https://melianhappy.vercel.app"
 repository: "Noiro-0/Melian-Happy"
+author: "Pemerintah Dusun Melian"
+locale: "id_ID"
+twitter:
+  username: "dusunmelian"
 future: true
 
 # Identitas Dusun (edit lewat CMS: menu "Pengaturan Umum")
@@ -40,6 +44,7 @@ permalink: /berita/:year/:month/:day/:title/
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 exclude:
   - Gemfile
