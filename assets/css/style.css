@@ -505,7 +505,7 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
   position: relative;
   z-index: 3;
   flex: 1.2;
-  padding: 3.5rem 3rem 3.5rem 3.5rem;
+  padding: 3.5rem 3rem 3.5rem 4.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -558,7 +558,7 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 2.5rem 2.5rem 3rem 0;
+  padding: 2.5rem 4.5rem 3rem 0;
 }
 
 .hero-badge-stack {
@@ -593,7 +593,7 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
 @media (max-width: 860px) {
   .hero { padding: 0 1.25rem; margin-top: 1rem; }
   .hero-card { flex-direction: column; min-height: 360px; }
-  .hero-card-content { padding: 2.5rem 2rem 1.5rem; }
+  .hero-card-content { padding: 2.5rem 2rem 1.5rem 3.5rem; }
   .hero-card-visual { padding: 0 2rem 3.5rem; }
   .hero-badge-stack { max-width: 100%; }
   .hero h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); }
@@ -603,7 +603,7 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
 }
 
 @media (max-width: 480px) {
-  .hero-card-content { padding: 2rem 1.5rem 1rem; }
+  .hero-card-content { padding: 2rem 1.5rem 1rem 3rem; }
   .hero-card-visual { padding: 0 1.5rem 3rem; }
   .slider-arrow { width: 32px; height: 32px; font-size: 0.9rem; }
 }

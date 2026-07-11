@@ -8,9 +8,6 @@ title: Beranda
     <div class="hero-slider" id="heroSlider">
       {% for slide in site.data.slider %}
       <div class="hero-slide {% if forloop.first %}is-active{% endif %}" style="background-image: url('{{ slide.gambar | relative_url }}');">
-        {% if slide.judul %}
-        <span class="slide-caption">{{ slide.judul }}</span>
-        {% endif %}
       </div>
       {% endfor %}
     </div>
@@ -105,12 +102,7 @@ title: Beranda
     });
   });
 
-  // Pause on hover
-  var heroCard = document.querySelector('.hero-card');
-  if (heroCard) {
-    heroCard.addEventListener('mouseenter', stopAuto);
-    heroCard.addEventListener('mouseleave', startAuto);
-  }
+
 
   if (total > 1) startAuto();
 })();
