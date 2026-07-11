@@ -45,6 +45,11 @@ collections:
       - { label: "Judul", name: "title", widget: "string" }
       - { label: "Tanggal", name: "date", widget: "datetime" }
       - { label: "Penulis", name: "author", widget: "string", default: "Admin Dusun" }
+      - { label: "Kategori", name: "category", widget: "string", required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
       - { label: "Gambar Sampul", name: "image", widget: "image", required: false }
       - { label: "Isi Berita", name: "body", widget: "markdown" }
 

@@ -5,23 +5,31 @@ title: Berita & Pengumuman
 lede: Kabar terbaru, pengumuman, dan kegiatan dari Dusun Melian.
 ---
 {% if site.posts.size > 0 %}
-<ul class="post-list">
+<div class="news-grid">
   {% for post in site.posts %}
-  <li>
-    <a class="post-card" href="{{ post.url | relative_url }}">
-      <div class="post-card-date">
-        <span class="day">{{ post.date | date: "%d" }}</span>
-        <span class="mon">{{ post.date | date: "%b" }}</span>
+  <a class="news-card" href="{{ post.url | relative_url }}">
+    <div class="news-card-image">
+      {% if post.image %}
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      {% else %}
+      <div class="news-card-placeholder">
+        <i class="bi bi-newspaper"></i>
       </div>
-      <div>
-        <h3>{{ post.title }}</h3>
-        <p class="post-excerpt">{{ post.content | strip_html | truncatewords: 24 }}</p>
-        {% if post.author %}<span class="post-author"><i class="bi bi-person"></i> {{ post.author }}</span>{% endif %}
+      {% endif %}
+      <span class="news-badge">Berita</span>
+    </div>
+    <div class="news-card-body">
+      <div class="news-meta">
+        {% if post.author %}<span>{{ post.author }}</span> <span class="meta-sep">|</span>{% endif %}
+        <span>{{ post.date | date: "%d-%m-%Y" }}</span>
       </div>
-    </a>
-  </li>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.content | strip_html | truncatewords: 20 }}</p>
+      <span class="news-read-more">Baca selengkapnya <i class="bi bi-chevron-right"></i></span>
+    </div>
+  </a>
   {% endfor %}
-</ul>
+</div>
 {% else %}
 <p>Belum ada berita yang dipublikasikan.</p>
 {% endif %}
