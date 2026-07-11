@@ -350,8 +350,13 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
 
 @media (max-width: 920px) {
   .nav-toggle { display: inline-flex; }
-  .nav-cta { display: none; }
   .navbar-inner { flex-wrap: wrap; padding: 0 1.25rem; height: auto; min-height: 60px; }
+  .nav-cta {
+    margin-left: auto;
+    margin-right: 1rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
   .nav-links {
     flex-direction: column;
     width: 100%;
@@ -1149,9 +1154,9 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
    ========================================================================== */
 .kontak-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 .kontak-info {
   background: var(--card);
@@ -1159,14 +1164,15 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
   border-radius: var(--radius);
   padding: 1.6rem;
   box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
 }
 .kontak-row {
   display: flex;
   gap: 0.85rem;
-  padding: 0.85rem 0;
-  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 0;
 }
-.kontak-row:last-child { border-bottom: none; }
 .kontak-row .bi {
   color: var(--gold);
   background: var(--gold-soft);
@@ -1176,12 +1182,8 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
   flex-shrink: 0;
 }
 .kontak-row strong { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; margin-bottom: 0.15rem; }
-.map-wrapper { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border); min-height: 260px; }
-.map-wrapper iframe { width: 100%; height: 100%; min-height: 260px; border: 0; display: block; }
-
-@media (max-width: 760px) {
-  .kontak-grid { grid-template-columns: 1fr; }
-}
+.map-wrapper { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border); min-height: 450px; }
+.map-wrapper iframe { width: 100%; height: 100%; min-height: 450px; border: 0; display: block; }
 
 /* ==========================================================================
    Ridge divider (signature motif)
