@@ -144,3 +144,22 @@ collections:
               - { label: "Alamat", name: "alamat", widget: "string" }
               - { label: "Email", name: "email", widget: "string" }
               - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+
+  - name: "statistik_data"
+    label: "Statistik"
+    files:
+      - name: "statistik"
+        label: "Statistik Dusun"
+        file: "_data/statistik.yml"
+        fields:
+          - { label: "Tahun", name: "tahun", widget: "number" }
+          - { label: "Jumlah KK", name: "jumlah_kk", widget: "number" }
+          - { label: "Jumlah Penduduk", name: "jumlah_penduduk", widget: "number" }
+          - { label: "Laki-laki", name: "laki_laki", widget: "number" }
+          - { label: "Perempuan", name: "perempuan", widget: "number" }
+          - label: "Mata Pencaharian"
+            name: "mata_pencaharian"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Jumlah", name: "jumlah", widget: "number" }

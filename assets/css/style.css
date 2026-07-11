@@ -980,7 +980,7 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
 .page-hero p { color: rgba(255,255,255,0.75); max-width: 56ch; margin: 0; }
 .page-hero .ridge-divider path { fill: var(--mist); }
 .page-body { padding: 3rem 0 4.5rem; }
-.page-body-inner { max-width: 68ch; }
+.page-body-inner { max-width: 100%; }
 .page-body-inner h2 { font-size: 1.5rem; margin-top: 2.2rem; }
 .page-body-inner ol, .page-body-inner ul { padding-left: 1.3rem; }
 .page-body-inner li { margin-bottom: 0.4rem; }
