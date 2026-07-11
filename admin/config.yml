@@ -111,6 +111,20 @@ collections:
           - { label: "Judul Halaman", name: "title", widget: "string" }
           - { label: "Konten", name: "body", widget: "markdown" }
 
+  - name: "beranda_data"
+    label: "Pengaturan Beranda"
+    files:
+      - name: "slider"
+        label: "Gambar Slider Beranda"
+        file: "_data/slider.yml"
+        fields:
+          - label: "Daftar Gambar Slider"
+            name: "slides"
+            widget: "list"
+            fields:
+              - { label: "Gambar", name: "gambar", widget: "image" }
+              - { label: "Judul (Opsional)", name: "judul", widget: "string", required: false }
+
   - name: "struktur_data"
     label: "Struktur Organisasi (Perangkat)"
     files:
