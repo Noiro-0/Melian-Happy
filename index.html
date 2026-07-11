@@ -4,6 +4,36 @@ title: Beranda
 ---
 <section class="hero">
   <div class="hero-card">
+    <!-- Slider Background Images -->
+    <div class="hero-slider" id="heroSlider">
+      {% for slide in site.data.slider %}
+      <div class="hero-slide {% if forloop.first %}is-active{% endif %}" style="background-image: url('{{ slide.gambar | relative_url }}');">
+        {% if slide.judul %}
+        <span class="slide-caption">{{ slide.judul }}</span>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Dark overlay for text readability -->
+    <div class="hero-overlay"></div>
+
+    <!-- Slider Controls -->
+    <button class="slider-arrow slider-prev" id="sliderPrev" aria-label="Slide sebelumnya">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    <button class="slider-arrow slider-next" id="sliderNext" aria-label="Slide berikutnya">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+
+    <!-- Dot Indicators -->
+    <div class="slider-dots" id="sliderDots">
+      {% for slide in site.data.slider %}
+      <button class="slider-dot {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"></button>
+      {% endfor %}
+    </div>
+
+    <!-- Content (overlaid on slider) -->
     <div class="hero-card-content">
       <span class="hero-label"><i class="bi bi-geo-alt-fill"></i> Desa {{ site.dusun.desa }} &middot; Kec. {{ site.dusun.kecamatan }} &middot; {{ site.dusun.kabupaten }}</span>
       <h1>{{ site.dusun.nama | split: " " | first }} {{ site.dusun.nama | split: " " | last }}<br><span class="hero-accent">Desa {{ site.dusun.desa }}</span></h1>
@@ -13,10 +43,12 @@ title: Beranda
         generasi ke generasi.
       </p>
       <div class="hero-actions">
-        <a href="{{ '/profil.html' | relative_url }}" class="btn btn-gold"><i class="bi bi-journal-bookmark"></i> Profil & Sejarah</a>
-        <a href="{{ '/kontak.html' | relative_url }}" class="btn btn-outline-hero"><i class="bi bi-telephone"></i> Hubungi Kami</a>
+        <a href="{{ '/profil' | relative_url }}" class="btn btn-gold"><i class="bi bi-journal-bookmark"></i> Profil & Sejarah</a>
+        <a href="{{ '/kontak' | relative_url }}" class="btn btn-outline-hero"><i class="bi bi-telephone"></i> Hubungi Kami</a>
       </div>
     </div>
+
+    <!-- Info badges -->
     <div class="hero-card-visual">
       <div class="hero-badge-stack">
         <div class="hero-badge-item">
@@ -32,6 +64,58 @@ title: Beranda
   </div>
 </section>
 
+<!-- Hero Slider Script -->
+<script>
+(function () {
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots = document.querySelectorAll('.slider-dot');
+  var prevBtn = document.getElementById('sliderPrev');
+  var nextBtn = document.getElementById('sliderNext');
+  var current = 0;
+  var total = slides.length;
+  var interval = 5000; // 5 seconds auto-play
+  var timer;
+
+  function goTo(index) {
+    slides[current].classList.remove('is-active');
+    dots[current].classList.remove('is-active');
+    current = (index + total) % total;
+    slides[current].classList.add('is-active');
+    dots[current].classList.add('is-active');
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startAuto() {
+    stopAuto();
+    timer = setInterval(next, interval);
+  }
+  function stopAuto() {
+    if (timer) clearInterval(timer);
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function () { prev(); startAuto(); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { next(); startAuto(); });
+
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      goTo(parseInt(this.getAttribute('data-index'), 10));
+      startAuto();
+    });
+  });
+
+  // Pause on hover
+  var heroCard = document.querySelector('.hero-card');
+  if (heroCard) {
+    heroCard.addEventListener('mouseenter', stopAuto);
+    heroCard.addEventListener('mouseleave', startAuto);
+  }
+
+  if (total > 1) startAuto();
+})();
+</script>
+
 <div class="container">
   <!-- Layanan Dusun Section (center-aligned like "Program Studi") -->
   <section class="section section-services">
@@ -41,32 +125,32 @@ title: Beranda
     </div>
 
     <div class="service-grid">
-      <a href="{{ '/profil.html' | relative_url }}" class="service-card">
+      <a href="{{ '/profil' | relative_url }}" class="service-card">
         <div class="service-icon"><i class="bi bi-journal-bookmark"></i></div>
         <h3>Profil & Sejarah</h3>
         <p>Sejarah dan gambaran umum dusun</p>
       </a>
-      <a href="{{ '/struktur.html' | relative_url }}" class="service-card">
+      <a href="{{ '/struktur' | relative_url }}" class="service-card">
         <div class="service-icon"><i class="bi bi-diagram-3"></i></div>
         <h3>Struktur Organisasi</h3>
         <p>Perangkat dan pengurus dusun</p>
       </a>
-      <a href="{{ '/statistik.html' | relative_url }}" class="service-card">
+      <a href="{{ '/statistik' | relative_url }}" class="service-card">
         <div class="service-icon"><i class="bi bi-bar-chart-line"></i></div>
         <h3>Statistik</h3>
         <p>Data kependudukan dusun</p>
       </a>
-      <a href="{{ '/potensi.html' | relative_url }}" class="service-card">
+      <a href="{{ '/potensi' | relative_url }}" class="service-card">
         <div class="service-icon"><i class="bi bi-shop"></i></div>
         <h3>Potensi Dusun</h3>
         <p>UMKM, wisata, dan produk unggulan</p>
       </a>
-      <a href="{{ '/galeri.html' | relative_url }}" class="service-card">
+      <a href="{{ '/galeri' | relative_url }}" class="service-card">
         <div class="service-icon"><i class="bi bi-images"></i></div>
         <h3>Galeri</h3>
         <p>Dokumentasi kegiatan dusun</p>
       </a>
-      <a href="{{ '/berita.html' | relative_url }}" class="service-card">
+      <a href="{{ '/berita' | relative_url }}" class="service-card">
         <div class="service-icon"><i class="bi bi-megaphone"></i></div>
         <h3>Berita</h3>
         <p>Pengumuman dan kabar terbaru</p>
@@ -107,7 +191,7 @@ title: Beranda
       {% endfor %}
     </div>
     <div class="see-all-wrap">
-      <a href="{{ '/berita.html' | relative_url }}" class="see-all-link">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
+      <a href="{{ '/berita' | relative_url }}" class="see-all-link">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
     </div>
     {% else %}
     <p style="text-align:center;color:var(--muted);">Belum ada berita yang dipublikasikan.</p>
@@ -120,6 +204,6 @@ title: Beranda
       <h3><i class="bi bi-people"></i> Kenali Potensi {{ site.dusun.nama }}</h3>
       <p>UMKM, produk unggulan, dan destinasi wisata dari warga dusun kami.</p>
     </div>
-    <a href="{{ '/potensi.html' | relative_url }}" class="btn btn-gold">Jelajahi Potensi <i class="bi bi-arrow-right"></i></a>
+    <a href="{{ '/potensi' | relative_url }}" class="btn btn-gold">Jelajahi Potensi <i class="bi bi-arrow-right"></i></a>
   </section>
 </div>

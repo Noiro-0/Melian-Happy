@@ -378,7 +378,7 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
 }
 
 /* ==========================================================================
-   Hero — FTI UKDW style (rounded card, image overlay, flex layout)
+   Hero — Image Slider (FTI UKDW style, rounded card, arrows + dots)
    ========================================================================== */
 .hero {
   max-width: var(--container);
@@ -388,29 +388,127 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
 
 .hero-card {
   position: relative;
-  background: linear-gradient(135deg, var(--pine-dark) 0%, var(--pine) 40%, var(--pine-light) 100%);
+  background: var(--pine-dark);
   border-radius: var(--radius-xl);
   overflow: hidden;
   display: flex;
   align-items: stretch;
-  min-height: 420px;
+  min-height: 440px;
   box-shadow: var(--shadow-lg);
 }
-/* Subtle pattern overlay */
-.hero-card::before {
-  content: "";
+
+/* ---------- Slider images ---------- */
+.hero-slider {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 80% 20%, rgba(201,151,31,0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 80%, rgba(45,106,79,0.2) 0%, transparent 50%);
-  z-index: 1;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+.hero-slide.is-active {
+  opacity: 1;
+}
+
+.slide-caption {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  z-index: 3;
   pointer-events: none;
 }
 
+/* ---------- Dark overlay for text readability ---------- */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 42, 32, 0.82) 0%,
+    rgba(27, 67, 50, 0.65) 50%,
+    rgba(45, 106, 79, 0.45) 100%
+  );
+  pointer-events: none;
+}
+
+/* ---------- Slider arrows ---------- */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.slider-arrow:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.08);
+}
+.slider-prev { left: 1.2rem; }
+.slider-next { right: 1.2rem; }
+
+/* ---------- Dot indicators ---------- */
+.slider-dots {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 0.5rem;
+}
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+.slider-dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+.slider-dot.is-active {
+  background: var(--gold);
+  border-color: var(--gold);
+  width: 28px;
+  border-radius: 5px;
+}
+
+/* ---------- Hero content (overlaid on slider) ---------- */
 .hero-card-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   flex: 1.2;
   padding: 3.5rem 3rem 3.5rem 3.5rem;
   display: flex;
@@ -436,17 +534,19 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
   font-size: clamp(2.2rem, 4.5vw, 3.2rem);
   line-height: 1.1;
   margin-bottom: 1.2rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .hero-accent {
   color: var(--gold-light);
 }
 
 .hero-desc {
-  color: rgba(255,255,255,0.78);
+  color: rgba(255,255,255,0.85);
   font-size: 1.05rem;
   line-height: 1.7;
   max-width: 48ch;
   margin-bottom: 2rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
 .hero-actions {
@@ -455,14 +555,15 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
   gap: 0.85rem;
 }
 
+/* ---------- Hero badges (right side) ---------- */
 .hero-card-visual {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   flex: 0.8;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 2.5rem 2.5rem 2.5rem 0;
+  padding: 2.5rem 2.5rem 3rem 0;
 }
 
 .hero-badge-stack {
@@ -476,18 +577,18 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.12);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: var(--radius-sm);
   padding: 0.85rem 1rem;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.92);
   font-size: 0.85rem;
   line-height: 1.4;
   transition: background 0.2s;
 }
 .hero-badge-item:hover {
-  background: rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.2);
 }
 .hero-badge-item .bi {
   color: var(--gold-light);
@@ -497,16 +598,20 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
 
 @media (max-width: 860px) {
   .hero { padding: 0 1.25rem; margin-top: 1rem; }
-  .hero-card { flex-direction: column; min-height: auto; }
+  .hero-card { flex-direction: column; min-height: 360px; }
   .hero-card-content { padding: 2.5rem 2rem 1.5rem; }
-  .hero-card-visual { padding: 0 2rem 2rem; }
+  .hero-card-visual { padding: 0 2rem 3.5rem; }
   .hero-badge-stack { max-width: 100%; }
   .hero h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); }
+  .slider-arrow { width: 36px; height: 36px; font-size: 1rem; }
+  .slider-prev { left: 0.75rem; }
+  .slider-next { right: 0.75rem; }
 }
 
 @media (max-width: 480px) {
   .hero-card-content { padding: 2rem 1.5rem 1rem; }
-  .hero-card-visual { padding: 0 1.5rem 1.5rem; }
+  .hero-card-visual { padding: 0 1.5rem 3rem; }
+  .slider-arrow { width: 32px; height: 32px; font-size: 0.9rem; }
 }
 
 /* ==========================================================================
