@@ -258,10 +258,15 @@ title: Beranda
         </div>
       </div>
 
-      <div class="map-wrapper">
-        <iframe src="https://maps.google.com/maps?q=-8.2216381,111.0190714&hl=id&z=15&output=embed" loading="lazy"
-          title="Peta lokasi {{ site.dusun.nama }}">
-        </iframe>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="map-wrapper">
+          <iframe src="https://maps.google.com/maps?q=Balai+Dusun+Melian&hl=id&z=17&output=embed" loading="lazy"
+            title="Peta lokasi {{ site.dusun.nama }}">
+          </iframe>
+        </div>
+        <div class="map-wrapper" style="display: flex; align-items: center; justify-content: center; background: #f3f4f6;">
+          <img src="{{ '/assets/img/peta-pemukiman.jpg' | relative_url }}" alt="Peta Pemukiman Dusun Melian" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
       </div>
     </div>
     <p style="margin-top:1rem; font-size:0.85rem; color:var(--muted);">
@@ -269,29 +274,6 @@ title: Beranda
     </p>
   </section>
 
-  <!-- Peta Wilayah Section -->
-  <section class="section reveal" id="peta">
-    <div class="section-center-head">
-      <h2>Peta Wilayah & Pemukiman</h2>
-      <p>Lokasi geografis dan denah pemukiman Dusun Melian.</p>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="margin-top: 2rem;">
-      <!-- Kiri: Google Maps -->
-      <div class="map-wrapper" style="height: 400px; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-          src="https://maps.google.com/maps?q=Balai+Dusun+Melian&hl=id&z=17&output=embed" 
-          style="border: none;"></iframe>
-      </div>
-      <!-- Kanan: Gambar Peta Pemukiman -->
-      <div class="map-image-wrapper" style="height: 400px; display: flex; align-items: center; justify-content: center; background: #f3f4f6; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
-        <img src="{{ '/assets/img/peta-pemukiman.jpg' | relative_url }}" alt="Peta Pemukiman Dusun Melian" style="width: 100%; height: 100%; object-fit: contain;">
-      </div>
-    </div>
-    <p style="margin-top:1rem; font-size:0.85rem; color:var(--muted); text-align: center;">
-      <i class="bi bi-info-circle"></i> Peta menunjukkan lokasi pasti dari Balai Dusun Melian dan denah pemukiman warga.
-    </p>
-  </section>
 
   <!-- CTA Band -->
   <section class="cta-band reveal">
