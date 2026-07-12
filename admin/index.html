@@ -6,40 +6,12 @@
   <title>Admin – Melian Happy</title>
   <link rel="icon" href="/admin/logo.svg" type="image/svg+xml" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    // Tailwind config for custom colors (green, gold)
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#004225',   // deep green
-            accent: '#d4af37',    // gold
-            light: '#ffffff',
-          },
-        },
-      },
-    };
-  </script>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
 </head>
-<body class="bg-light text-primary min-h-screen flex flex-col">
-  <!-- Header with gold accent -->
-  <header class="bg-primary text-light py-4 shadow-md">
-    <div class="container mx-auto flex items-center justify-between">
-      <h1 class="text-3xl font-semibold">Admin Dashboard</h1>
-      <a href="/" class="text-accent hover:text-white transition-colors">Back to site</a>
-    </div>
-  </header>
-  {% include nav.html %}
-  <main class="flex-1 container mx-auto p-6">
-    <section class="bg-white rounded-lg shadow-lg p-6">
-      <link rel="cms-config-url" href="/admin/config.yml" type="text/yaml" />
-      <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-      <script>
-        CMS.registerPreviewStyle("preview.css");
-      </script>
-    </section>
-  </main>
-  {% include footer.html %}
+<body>
+  <link rel="cms-config-url" href="/admin/config.yml" type="text/yaml" />
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    CMS.registerPreviewStyle("preview.css");
+  </script>
 </body>
 </html>

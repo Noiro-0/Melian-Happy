@@ -6,7 +6,7 @@ title: Beranda
   <div class="hero-card">
     <!-- Slider Background Images -->
     <div class="hero-slider" id="heroSlider">
-      {% for slide in site.data.slider.slides %}
+      {% for slide in site.data.slider %}
       <div class="hero-slide {% if forloop.first %}is-active{% endif %}" style="background-image: url('{{ slide.gambar | relative_url }}');">
       </div>
       {% endfor %}
@@ -25,7 +25,7 @@ title: Beranda
 
     <!-- Dot Indicators -->
     <div class="slider-dots" id="sliderDots">
-      {% for slide in site.data.slider.slides %}
+      {% for slide in site.data.slider %}
       <button class="slider-dot {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"></button>
       {% endfor %}
     </div>
@@ -152,28 +152,6 @@ title: Beranda
     </div>
   </section>
 
-  <!-- Galeri Section -->
-  <section class="section">
-    <div class="section-center-head">
-      <h2>Galeri Dusun</h2>
-      <p>Dokumentasi kegiatan dan keseharian warga Dusun Melian.</p>
-    </div>
-    
-    <div class="gallery-grid">
-      {% for foto in site.data.galeri.galeri limit:4 %}
-      <figure class="gallery-item">
-        <div class="frame">
-          <img src="{{ foto.gambar | relative_url }}" alt="{{ foto.judul }}" loading="lazy">
-        </div>
-        <figcaption>{{ foto.judul }}</figcaption>
-      </figure>
-      {% endfor %}
-    </div>
-    <div class="see-all-wrap" style="margin-top: 1.5rem;">
-      <a href="{{ '/galeri' | relative_url }}" class="see-all-link">Lihat Selengkapnya <i class="bi bi-chevron-right"></i></a>
-    </div>
-  </section>
-
   <!-- Berita Section (card with images like "Informasi Terkini") -->
   <section class="section section-news">
     <div class="section-center-head">
@@ -216,6 +194,28 @@ title: Beranda
     {% else %}
     <p style="text-align:center;color:var(--muted);">Belum ada berita yang dipublikasikan.</p>
     {% endif %}
+  </section>
+
+  <!-- Galeri Section -->
+  <section class="section">
+    <div class="section-center-head">
+      <h2>Galeri Dusun</h2>
+      <p>Dokumentasi kegiatan dan keseharian warga Dusun Melian.</p>
+    </div>
+    
+    <div class="gallery-grid">
+      {% for foto in site.data.galeri.galeri limit:4 %}
+      <figure class="gallery-item">
+        <div class="frame">
+          <img src="{{ foto.gambar | relative_url }}" alt="{{ foto.judul }}" loading="lazy">
+        </div>
+        <figcaption>{{ foto.judul }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    <div class="see-all-wrap" style="margin-top: 1.5rem;">
+      <a href="{{ '/galeri' | relative_url }}" class="see-all-link">Lihat Selengkapnya <i class="bi bi-chevron-right"></i></a>
+    </div>
   </section>
 
   <!-- Kontak Section -->
