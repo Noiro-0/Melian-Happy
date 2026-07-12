@@ -1,0 +1,225 @@
+media:
+  input: assets/img/uploads
+  output: /assets/img/uploads
+
+content:
+  - name: berita
+    label: Berita
+    type: collection
+    path: _posts
+    fields:
+      - name: title
+        label: Judul
+        type: string
+        required: true
+      - name: date
+        label: Tanggal
+        type: date
+      - name: author
+        label: Penulis
+        type: string
+      - name: category
+        label: Kategori
+        type: string
+      - name: tags
+        label: Tags
+        type: list
+      - name: image
+        label: Gambar Sampul
+        type: image
+      - name: bg_color
+        label: Warna Latar (Jika Tanpa Gambar)
+        type: select
+        options:
+          - label: Hijau Gelap (Bawaan)
+            value: var(--pine-dark)
+          - label: Hijau Cemara
+            value: var(--pine)
+          - label: Kuning Emas
+            value: var(--gold)
+          - label: Merah Bata
+            value: "#a14036"
+          - label: Biru Tua
+            value: "#1e3a5f"
+      - name: pdf_file
+        label: Dokumen PDF (Opsional)
+        type: file
+      - name: body
+        label: Isi Berita
+        type: rich-text
+
+  - name: potensi
+    label: Potensi Dusun
+    type: collection
+    path: _potensi
+    fields:
+      - name: title
+        label: Nama
+        type: string
+        required: true
+      - name: kategori
+        label: Kategori
+        type: select
+        options:
+          - UMKM
+          - Wisata
+          - Produk Unggulan
+          - Lainnya
+      - name: image
+        label: Gambar
+        type: image
+      - name: bg_color
+        label: Warna Latar
+        type: select
+        options:
+          - label: Hijau Gelap
+            value: var(--pine-dark)
+          - label: Kuning Emas
+            value: var(--gold)
+      - name: pdf_file
+        label: Dokumen PDF
+        type: file
+      - name: body
+        label: Deskripsi
+        type: rich-text
+
+  - name: profil
+    label: Profil & Sejarah
+    type: file
+    path: profil.html
+    fields:
+      - name: title
+        label: Judul Halaman
+        type: string
+      - name: body
+        label: Konten
+        type: rich-text
+
+  - name: slider
+    label: Gambar Slider Beranda
+    type: file
+    path: _data/slider.yml
+    fields:
+      - name: slider
+        label: Daftar Gambar
+        type: object
+        list: true
+        fields:
+          - name: gambar
+            label: Gambar
+            type: image
+          - name: judul
+            label: Judul (Opsional)
+            type: string
+
+  - name: perangkat
+    label: Struktur Organisasi
+    type: file
+    path: _data/perangkat.yml
+    fields:
+      - name: perangkat
+        label: Daftar Perangkat
+        type: object
+        list: true
+        fields:
+          - name: nama
+            label: Nama
+            type: string
+          - name: jabatan
+            label: Jabatan
+            type: string
+          - name: foto
+            label: Foto
+            type: image
+
+  - name: statistik
+    label: Statistik Kependudukan
+    type: file
+    path: _data/statistik.yml
+    fields:
+      - name: tahun
+        label: Tahun
+        type: number
+      - name: jumlah_kk
+        label: Jumlah KK
+        type: number
+      - name: jumlah_penduduk
+        label: Jumlah Penduduk
+        type: number
+      - name: laki_laki
+        label: Laki-laki
+        type: number
+      - name: perempuan
+        label: Perempuan
+        type: number
+      - name: mata_pencaharian
+        label: Mata Pencaharian
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Jenis Pekerjaan
+            type: string
+          - name: jumlah
+            label: Jumlah
+            type: number
+
+  - name: galeri
+    label: Galeri
+    type: file
+    path: _data/galeri.yml
+    fields:
+      - name: galeri
+        label: Foto
+        type: object
+        list: true
+        fields:
+          - name: judul
+            label: Judul
+            type: string
+          - name: gambar
+            label: Gambar
+            type: image
+
+  - name: pengaturan
+    label: Pengaturan Website
+    type: file
+    path: _config.yml
+    fields:
+      - name: title
+        label: Judul Website
+        type: string
+      - name: description
+        label: Deskripsi
+        type: string
+      - name: dusun
+        label: Identitas Dusun
+        type: object
+        fields:
+          - name: nama
+            label: Nama Dusun
+            type: string
+          - name: desa
+            label: Desa
+            type: string
+          - name: kecamatan
+            label: Kecamatan
+            type: string
+          - name: kabupaten
+            label: Kabupaten
+            type: string
+          - name: provinsi
+            label: Provinsi
+            type: string
+          - name: kepala_dusun
+            label: Nama Kepala Dusun
+            type: string
+          - name: alamat
+            label: Alamat
+            type: string
+          - name: email
+            label: Email
+            type: string
+          - name: whatsapp
+            label: WhatsApp
+            type: string
