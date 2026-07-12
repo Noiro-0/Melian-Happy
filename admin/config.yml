@@ -9,7 +9,7 @@ backend:
   auth_token_endpoint: /sites/c09574a3-5c7b-4cd3-aeae-11a231cd47a6/token
   gateway_url: https://gateway.decapbridge.com
 
-  # See who did what (optional)
+
 
 # Enable PKCE fields (optional, recommended)
 auth:
