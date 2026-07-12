@@ -31,7 +31,6 @@
         <ul class="footer-links">
           <li><a href="{{ '/berita' | relative_url }}">Berita & Pengumuman</a></li>
           <li><a href="{{ '/galeri' | relative_url }}">Galeri Kegiatan</a></li>
-          <li><a href="{{ '/kontak' | relative_url }}">Hubungi Kami</a></li>
         </ul>
       </div>
     </div>
@@ -43,14 +42,14 @@
       const pdfjsLib = window['pdfjs-dist/build/pdf'];
       pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const pdfCanvasElements = document.querySelectorAll('.pdf-thumbnail-canvas');
         pdfCanvasElements.forEach(canvas => {
           const url = canvas.getAttribute('data-pdf-url');
           if (!url) return;
 
-          pdfjsLib.getDocument(url).promise.then(function(pdf) {
-            pdf.getPage(1).then(function(page) {
+          pdfjsLib.getDocument(url).promise.then(function (pdf) {
+            pdf.getPage(1).then(function (page) {
               const viewport = page.getViewport({ scale: 1.5 });
               canvas.height = viewport.height;
               canvas.width = viewport.width;
@@ -61,7 +60,7 @@
               };
               page.render(renderContext);
             });
-          }).catch(function(error) {
+          }).catch(function (error) {
             console.error('Error loading PDF:', error);
             canvas.parentElement.innerHTML = '<div style="display:flex; align-items:center; justify-content:center; height:100%; color:var(--muted);"><i class="bi bi-file-earmark-pdf" style="font-size:3rem;"></i></div>';
           });

@@ -7,7 +7,8 @@ title: Beranda
     <!-- Slider Background Images -->
     <div class="hero-slider" id="heroSlider">
       {% for slide in site.data.slider %}
-      <div class="hero-slide {% if forloop.first %}is-active{% endif %}" style="background-image: url('{{ slide.gambar | relative_url }}');">
+      <div class="hero-slide {% if forloop.first %}is-active{% endif %}"
+        style="background-image: url('{{ slide.gambar | relative_url }}');">
       </div>
       {% endfor %}
     </div>
@@ -26,23 +27,28 @@ title: Beranda
     <!-- Dot Indicators -->
     <div class="slider-dots" id="sliderDots">
       {% for slide in site.data.slider %}
-      <button class="slider-dot {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"></button>
+      <button class="slider-dot {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}"
+        aria-label="Slide {{ forloop.index }}"></button>
       {% endfor %}
     </div>
 
     <!-- Content (overlaid on slider) -->
     <div class="hero-card-content">
-      <span class="hero-label"><i class="bi bi-geo-alt-fill"></i> Desa {{ site.dusun.desa }} &middot; Kec. {{ site.dusun.kecamatan }} &middot; {{ site.dusun.kabupaten }}</span>
-      <h1 class="animate-fade-in-up">{{ site.dusun.nama | split: " " | first }} {{ site.dusun.nama | split: " " | last }}<br><span class="hero-accent">Desa {{ site.dusun.desa }}</span></h1>
+      <span class="hero-label"><i class="bi bi-geo-alt-fill"></i> Desa {{ site.dusun.desa }} &middot; Kec. {{
+        site.dusun.kecamatan }} &middot; {{ site.dusun.kabupaten }}</span>
+      <h1 class="animate-fade-in-up">{{ site.dusun.nama | split: " " | first }} {{ site.dusun.nama | split: " " | last
+        }}<br><span class="hero-accent">Desa {{ site.dusun.desa }}</span></h1>
       <p class="hero-desc animate-fade-in-up" style="animation-delay: 200ms;">
         Dusun dataran tinggi di lereng Gunung Limo — udara sejuk, panorama perbukitan,
         dan warga yang hidup dari bertani serta menjaga tradisi gotong royong dari
         generasi ke generasi.
       </p>
       <div class="hero-actions">
-        <a href="{{ '/profil' | relative_url }}" class="bg-accent text-light px-4 py-2 rounded hover:bg-primary transition animate-fade-in-up" style="animation-delay: 400ms;"><i class="bi bi-journal-bookmark"></i> Profil & Sejarah</a>
+        <a href="{{ '/profil' | relative_url }}"
+          class="bg-accent text-light px-4 py-2 rounded hover:bg-primary transition animate-fade-in-up"
+          style="animation-delay: 400ms;"><i class="bi bi-journal-bookmark"></i> Profil & Sejarah</a>
       </div>
-      
+
       <!-- Info badges (moved to left) -->
       <div class="hero-badge-stack" style="margin-top: 2rem;">
         <div class="hero-badge-item">
@@ -64,49 +70,49 @@ title: Beranda
 
 <!-- Hero Slider Script -->
 <script>
-(function () {
-  var slides = document.querySelectorAll('.hero-slide');
-  var dots = document.querySelectorAll('.slider-dot');
-  var prevBtn = document.getElementById('sliderPrev');
-  var nextBtn = document.getElementById('sliderNext');
-  var current = 0;
-  var total = slides.length;
-  var interval = 5000; // 5 seconds auto-play
-  var timer;
+  (function () {
+    var slides = document.querySelectorAll('.hero-slide');
+    var dots = document.querySelectorAll('.slider-dot');
+    var prevBtn = document.getElementById('sliderPrev');
+    var nextBtn = document.getElementById('sliderNext');
+    var current = 0;
+    var total = slides.length;
+    var interval = 5000; // 5 seconds auto-play
+    var timer;
 
-  function goTo(index) {
-    slides[current].classList.remove('is-active');
-    dots[current].classList.remove('is-active');
-    current = (index + total) % total;
-    slides[current].classList.add('is-active');
-    dots[current].classList.add('is-active');
-  }
+    function goTo(index) {
+      slides[current].classList.remove('is-active');
+      dots[current].classList.remove('is-active');
+      current = (index + total) % total;
+      slides[current].classList.add('is-active');
+      dots[current].classList.add('is-active');
+    }
 
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
 
-  function startAuto() {
-    stopAuto();
-    timer = setInterval(next, interval);
-  }
-  function stopAuto() {
-    if (timer) clearInterval(timer);
-  }
+    function startAuto() {
+      stopAuto();
+      timer = setInterval(next, interval);
+    }
+    function stopAuto() {
+      if (timer) clearInterval(timer);
+    }
 
-  if (prevBtn) prevBtn.addEventListener('click', function () { prev(); startAuto(); });
-  if (nextBtn) nextBtn.addEventListener('click', function () { next(); startAuto(); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { next(); startAuto(); });
 
-  dots.forEach(function (dot) {
-    dot.addEventListener('click', function () {
-      goTo(parseInt(this.getAttribute('data-index'), 10));
-      startAuto();
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        goTo(parseInt(this.getAttribute('data-index'), 10));
+        startAuto();
+      });
     });
-  });
 
 
 
-  if (total > 1) startAuto();
-})();
+    if (total > 1) startAuto();
+  })();
 </script>
 
 <div class="container">
@@ -165,11 +171,13 @@ title: Beranda
           {% if post.image %}
           <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
           {% elsif post.pdf_file %}
-          <div style="width: 100%; height: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #eee;">
-            <canvas class="pdf-thumbnail-canvas" data-pdf-url="{{ post.pdf_file | relative_url }}" style="width: 100%; height: auto; object-fit: cover;"></canvas>
+          <div
+            style="width: 100%; height: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #eee;">
+            <canvas class="pdf-thumbnail-canvas" data-pdf-url="{{ post.pdf_file | relative_url }}"
+              style="width: 100%; height: auto; object-fit: cover;"></canvas>
           </div>
           {% else %}
-          <div class="news-card-placeholder" {% if post.bg_color %}style="background: {{ post.bg_color }};"{% endif %}>
+          <div class="news-card-placeholder" {% if post.bg_color %}style="background: {{ post.bg_color }};" {% endif %}>
             <i class="bi bi-newspaper"></i>
           </div>
           {% endif %}
@@ -188,7 +196,8 @@ title: Beranda
       {% endfor %}
     </div>
     <div class="see-all-wrap">
-      <a href="{{ '/berita' | relative_url }}" class="see-all-link">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
+      <a href="{{ '/berita' | relative_url }}" class="see-all-link">Lihat Lainnya <i
+          class="bi bi-chevron-right"></i></a>
     </div>
     {% else %}
     <p style="text-align:center;color:var(--muted);">Belum ada berita yang dipublikasikan.</p>
@@ -201,7 +210,7 @@ title: Beranda
       <h2>Galeri Dusun</h2>
       <p>Dokumentasi kegiatan dan keseharian warga Dusun Melian.</p>
     </div>
-    
+
     <div class="gallery-grid">
       {% for foto in site.data.galeri.galeri limit:4 %}
       <figure class="gallery-item">
@@ -213,7 +222,8 @@ title: Beranda
       {% endfor %}
     </div>
     <div class="see-all-wrap" style="margin-top: 1.5rem;">
-      <a href="{{ '/galeri' | relative_url }}" class="see-all-link">Lihat Selengkapnya <i class="bi bi-chevron-right"></i></a>
+      <a href="{{ '/galeri' | relative_url }}" class="see-all-link">Lihat Selengkapnya <i
+          class="bi bi-chevron-right"></i></a>
     </div>
   </section>
 
@@ -243,20 +253,20 @@ title: Beranda
         </div>
         <div class="kontak-row">
           <i class="bi bi-map"></i>
-          <div><strong>Wilayah Administratif</strong>Desa {{ site.dusun.desa }}, Kec. {{ site.dusun.kecamatan }}, {{ site.dusun.kabupaten }}, {{ site.dusun.provinsi }}</div>
+          <div><strong>Wilayah Administratif</strong>Desa {{ site.dusun.desa }}, Kec. {{ site.dusun.kecamatan }}, {{
+            site.dusun.kabupaten }}, {{ site.dusun.provinsi }}</div>
         </div>
       </div>
-    
+
       <div class="map-wrapper">
-        <iframe
-          src="https://maps.google.com/maps?q=-8.2216381,111.0190714&hl=id&z=15&output=embed"
-          loading="lazy"
+        <iframe src="https://maps.google.com/maps?q=-8.2216381,111.0190714&hl=id&z=15&output=embed" loading="lazy"
           title="Peta lokasi {{ site.dusun.nama }}">
         </iframe>
       </div>
     </div>
     <p style="margin-top:1rem; font-size:0.85rem; color:var(--muted);">
-      <i class="bi bi-info-circle"></i> Peta menunjukkan lokasi pasti dari Balai Dusun Melian berdasarkan titik yang telah ditentukan.
+      <i class="bi bi-info-circle"></i> Peta menunjukkan lokasi pasti dari Balai Dusun Melian berdasarkan titik yang
+      telah ditentukan.
     </p>
   </section>
 
@@ -266,6 +276,8 @@ title: Beranda
       <h3><i class="bi bi-people"></i> Kenali Potensi {{ site.dusun.nama }}</h3>
       <p>UMKM, produk unggulan, dan destinasi wisata dari warga dusun kami.</p>
     </div>
-    <a href="{{ '/potensi' | relative_url }}" class="bg-accent text-light px-4 py-2 rounded hover:bg-primary transition">Jelajahi Potensi <i class="bi bi-arrow-right"></i></a>
+    <a href="{{ '/potensi' | relative_url }}"
+      class="bg-accent text-light px-4 py-2 rounded hover:bg-primary transition">Jelajahi Potensi <i
+        class="bi bi-arrow-right"></i></a>
   </section>
 </div>
