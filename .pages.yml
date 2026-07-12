@@ -100,7 +100,7 @@ content:
     type: file
     path: _data/slider.yml
     fields:
-      - name: slider
+      - name: slides
         label: Daftar Gambar
         type: object
         list: true
