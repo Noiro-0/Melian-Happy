@@ -33,15 +33,14 @@ title: Beranda
     <!-- Content (overlaid on slider) -->
     <div class="hero-card-content">
       <span class="hero-label"><i class="bi bi-geo-alt-fill"></i> Desa {{ site.dusun.desa }} &middot; Kec. {{ site.dusun.kecamatan }} &middot; {{ site.dusun.kabupaten }}</span>
-      <h1>{{ site.dusun.nama | split: " " | first }} {{ site.dusun.nama | split: " " | last }}<br><span class="hero-accent">Desa {{ site.dusun.desa }}</span></h1>
-      <p class="hero-desc">
+      <h1 class="animate-fade-in-up">{{ site.dusun.nama | split: " " | first }} {{ site.dusun.nama | split: " " | last }}<br><span class="hero-accent">Desa {{ site.dusun.desa }}</span></h1>
+      <p class="hero-desc animate-fade-in-up" style="animation-delay: 200ms;">
         Dusun dataran tinggi di lereng Gunung Limo — udara sejuk, panorama perbukitan,
         dan warga yang hidup dari bertani serta menjaga tradisi gotong royong dari
         generasi ke generasi.
       </p>
       <div class="hero-actions">
-        <a href="{{ '/profil' | relative_url }}" class="bg-accent text-light px-4 py-2 rounded hover:bg-primary transition"><i class="bi bi-journal-bookmark"></i> Profil & Sejarah</a>
-        <a href="{{ '/kontak' | relative_url }}" class="border border-primary text-primary px-4 py-2 rounded hover:bg-primary hover:text-light transition"><i class="bi bi-telephone"></i> Hubungi Kami</a>
+        <a href="{{ '/profil' | relative_url }}" class="bg-accent text-light px-4 py-2 rounded hover:bg-primary transition animate-fade-in-up" style="animation-delay: 400ms;"><i class="bi bi-journal-bookmark"></i> Profil & Sejarah</a>
       </div>
       
       <!-- Info badges (moved to left) -->
@@ -112,7 +111,7 @@ title: Beranda
 
 <div class="container">
   <!-- Layanan Dusun Section (center-aligned like "Program Studi") -->
-  <section class="section section-services">
+  <section class="section section-services reveal">
     <div class="section-center-head">
       <h2>Layanan Dusun</h2>
       <p>Akses berbagai informasi dan layanan dusun secara mudah dan transparan untuk seluruh warga.</p>
@@ -153,7 +152,7 @@ title: Beranda
   </section>
 
   <!-- Berita Section (card with images like "Informasi Terkini") -->
-  <section class="section section-news">
+  <section class="section section-news reveal">
     <div class="section-center-head">
       <h2>Informasi Terkini</h2>
     </div>
@@ -197,7 +196,7 @@ title: Beranda
   </section>
 
   <!-- Galeri Section -->
-  <section class="section">
+  <section class="section reveal">
     <div class="section-center-head">
       <h2>Galeri Dusun</h2>
       <p>Dokumentasi kegiatan dan keseharian warga Dusun Melian.</p>
@@ -219,7 +218,7 @@ title: Beranda
   </section>
 
   <!-- Kontak Section -->
-  <section class="section" id="kontak">
+  <section class="section reveal" id="kontak">
     <div class="section-center-head">
       <h2>Hubungi Kami</h2>
       <p>Sampaikan pertanyaan, saran, atau laporan Anda kepada perangkat Dusun Melian.</p>
@@ -262,7 +261,7 @@ title: Beranda
   </section>
 
   <!-- CTA Band -->
-  <section class="cta-band">
+  <section class="cta-band reveal">
     <div>
       <h3><i class="bi bi-people"></i> Kenali Potensi {{ site.dusun.nama }}</h3>
       <p>UMKM, produk unggulan, dan destinasi wisata dari warga dusun kami.</p>
