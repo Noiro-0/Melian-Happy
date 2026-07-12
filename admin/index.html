@@ -6,6 +6,13 @@
   <title>Admin – Melian Happy</title>
   <link rel="icon" href="/admin/logo.svg" type="image/svg+xml" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: {
+        preflight: false, // Prevent Tailwind from breaking Decap CMS UI (fixes misaligned logo)
+      }
+    }
+  </script>
 </head>
 <body>
   <link rel="cms-config-url" href="/admin/config.yml" type="text/yaml" />
