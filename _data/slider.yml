@@ -3,10 +3,11 @@
 # - gambar: path relatif ke gambar (taruh di /assets/img/slider/)
 # - judul: caption yang ditampilkan di slider (opsional)
 
-slides:
-  - gambar: /assets/img/uploads/whatsapp-image-2026-06-29-at-17.23.27.jpeg
-    judul: Pemandangan Dusun Melian
-  - gambar: /assets/img/slider/dusun-2.jpg
-    judul: Kegiatan Gotong Royong
-  - gambar: /assets/img/slider/dusun-3.jpg
-    judul: Panorama Perbukitan
+- gambar: /assets/img/uploads/whatsapp-image-2026-06-29-at-17.23.27.jpeg
+  judul: 
+
+- gambar: /assets/img/slider/dusun-2.jpg
+  judul: 
+
+- gambar: /assets/img/slider/dusun-3.jpg
+  judul: Panorama Perbukitan
