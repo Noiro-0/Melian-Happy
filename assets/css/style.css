@@ -706,15 +706,27 @@ p {
 
   .hero-card {
     flex-direction: column;
-    min-height: 360px;
+    min-height: auto;
+  }
+
+  .hero-slider {
+    position: relative;
+    height: 350px;
+    flex-shrink: 0;
+  }
+
+  .hero-overlay {
+    height: 350px;
+    bottom: auto;
+    background: linear-gradient(to bottom, rgba(15, 42, 32, 0.4) 0%, transparent 100%);
   }
 
   .hero-card-content {
-    padding: 2.5rem 2rem 1.5rem 3.5rem;
+    padding: 2rem 1.5rem 2.5rem;
   }
 
   .hero-card-visual {
-    padding: 0 2rem 3.5rem;
+    display: none;
   }
 
   .hero-badge-stack {
@@ -726,6 +738,7 @@ p {
   }
 
   .slider-arrow {
+    top: 175px;
     width: 36px;
     height: 36px;
     font-size: 1rem;
@@ -738,21 +751,31 @@ p {
   .slider-next {
     right: 0.75rem;
   }
+
+  .slider-dots {
+    bottom: auto;
+    top: 320px;
+  }
 }
 
 @media (max-width: 480px) {
-  .hero-card-content {
-    padding: 2rem 1.5rem 1rem 3rem;
+  .hero-slider {
+    height: 280px;
   }
-
-  .hero-card-visual {
-    padding: 0 1.5rem 3rem;
+  .hero-overlay {
+    height: 280px;
   }
-
   .slider-arrow {
+    top: 140px;
     width: 32px;
     height: 32px;
     font-size: 0.9rem;
+  }
+  .slider-dots {
+    top: 250px;
+  }
+  .hero-card-content {
+    padding: 1.5rem 1.25rem 2rem;
   }
 }
 
