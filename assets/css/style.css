@@ -628,7 +628,7 @@ p {
   gap: 0.4rem;
   font-size: 0.78rem;
   font-weight: 500;
-  color: var(--gold-light);
+  color: var(--pine-light);
   letter-spacing: 0.03em;
   margin-bottom: 1rem;
 }
@@ -647,7 +647,7 @@ p {
 }
 
 .hero-accent {
-  color: var(--gold-light);
+  color: var(--pine-light);
 }
 
 .hero-desc {
