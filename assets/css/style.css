@@ -482,20 +482,20 @@ p {
    Hero — Image Slider (FTI UKDW style, rounded card, arrows + dots)
    ========================================================================== */
 .hero {
-  max-width: var(--container);
-  margin: 1.5rem auto 0;
-  padding: 0 2rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-card {
   position: relative;
   background: var(--pine-dark);
-  border-radius: var(--radius-xl);
+  border-radius: 0;
   overflow: hidden;
   display: flex;
   align-items: stretch;
-  min-height: 440px;
-  box-shadow: var(--shadow-lg);
+  min-height: calc(100vh - 68px); /* Full viewport height minus navbar */
+  box-shadow: none;
 }
 
 /* ---------- Slider images ---------- */
@@ -615,11 +615,15 @@ p {
 .hero-card-content {
   position: relative;
   z-index: 3;
-  flex: 1.2;
-  padding: 3.5rem 3rem 3.5rem 4.5rem;
+  flex: 1;
+  padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 .hero-label {
@@ -709,83 +713,20 @@ p {
 }
 
 @media (max-width: 860px) {
-  .hero {
-    padding: 0 1.25rem;
-    margin-top: 1rem;
-  }
-
-  .hero-card {
-    flex-direction: column;
-    min-height: auto;
-  }
-
-  .hero-slider {
-    position: relative;
-    height: 350px;
-    flex-shrink: 0;
-  }
-
-  .hero-overlay {
-    height: 350px;
-    bottom: auto;
-    background: linear-gradient(to bottom, rgba(15, 42, 32, 0.4) 0%, transparent 100%);
-  }
-
-  .hero-card-content {
-    padding: 2rem 1.5rem 2.5rem;
-  }
-
-  .hero-card-visual {
-    display: none;
-  }
-
-  .hero-badge-stack {
-    max-width: 100%;
-  }
-
   .hero h1 {
     font-size: clamp(1.8rem, 5vw, 2.4rem);
-  }
-
-  .slider-arrow {
-    top: 175px;
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-  }
-
-  .slider-prev {
-    left: 0.75rem;
-  }
-
-  .slider-next {
-    right: 0.75rem;
-  }
-
-  .slider-dots {
-    bottom: auto;
-    top: 320px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-slider {
-    height: 280px;
+  .hero-card-content {
+    padding: 1.5rem 1.25rem 2rem;
   }
-  .hero-overlay {
-    height: 280px;
-  }
+  
   .slider-arrow {
-    top: 140px;
     width: 32px;
     height: 32px;
     font-size: 0.9rem;
-  }
-  .slider-dots {
-    top: 250px;
-  }
-  .hero-card-content {
-    padding: 1.5rem 1.25rem 2rem;
   }
 }
 

@@ -34,8 +34,6 @@ title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
 
     <!-- Content (overlaid on slider) -->
     <div class="hero-card-content">
-      <span class="hero-label"><i class="bi bi-geo-alt-fill"></i> Desa {{ site.dusun.desa }} &middot; Kec. {{
-        site.dusun.kecamatan }} &middot; {{ site.dusun.kabupaten }}</span>
       <h1 class="animate-fade-in-up">{{ site.dusun.nama | split: " " | first }} {{ site.dusun.nama | split: " " | last
         }}<br><span class="hero-accent">Desa {{ site.dusun.desa }}</span></h1>
       <p class="hero-desc animate-fade-in-up" style="animation-delay: 200ms;">
@@ -44,26 +42,10 @@ title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
         generasi ke generasi.
       </p>
       <div class="hero-actions">
-        <a href="{{ '/profil' | relative_url }}"
-          class="bg-accent text-light px-4 py-2 rounded hover:bg-primary transition animate-fade-in-up"
-          style="animation-delay: 400ms;"><i class="bi bi-journal-bookmark"></i> Profil & Sejarah</a>
+        <a href="#layanan-dusun" class="btn btn-gold animate-fade-in-up" style="animation-delay: 400ms;">
+          Jelajahi Sekarang <i class="bi bi-arrow-down"></i>
+        </a>
       </div>
-
-      <!-- Info badges (moved to left) -->
-      <div class="hero-badge-stack" style="margin-top: 2rem;">
-        <div class="hero-badge-item">
-          <i class="bi bi-signpost-2"></i>
-          <span>{{ site.dusun.alamat }}</span>
-        </div>
-        <div class="hero-badge-item">
-          <i class="bi bi-person-badge"></i>
-          <span>Kepala Dusun: {{ site.dusun.kepala_dusun }}</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Empty visual section to maintain flex layout balance -->
-    <div class="hero-card-visual">
     </div>
   </div>
 </section>
@@ -117,7 +99,7 @@ title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
 
 <div class="container">
   <!-- Layanan Dusun Section (center-aligned like "Program Studi") -->
-  <section class="section section-services reveal">
+  <section id="layanan-dusun" class="section section-services reveal">
     <div class="section-center-head">
       <h2>Layanan Dusun</h2>
       <p>Akses berbagai informasi dan layanan dusun secara mudah dan transparan untuk seluruh warga.</p>
