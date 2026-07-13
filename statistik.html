@@ -38,10 +38,15 @@ lede: Data kependudukan Dusun Melian yang diperbarui secara berkala.
 
 <div class="charts-wrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0;">
   <div class="chart-container" style="background: var(--card); padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
-    <h3 style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1rem;"><i class="bi bi-pie-chart"></i> Komposisi Penduduk</h3>
+    <h3 style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1rem;"><i class="bi bi-pie-chart"></i> Komposisi Gender</h3>
     <canvas id="genderChart"></canvas>
   </div>
   
+  <div class="chart-container" style="background: var(--card); padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+    <h3 style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1rem;"><i class="bi bi-people-fill"></i> Komposisi Umur</h3>
+    <canvas id="ageChart"></canvas>
+  </div>
+
   <div class="chart-container" style="background: var(--card); padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
     <h3 style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1rem;"><i class="bi bi-bar-chart"></i> Mata Pencaharian</h3>
     <canvas id="jobChart"></canvas>
@@ -104,6 +109,36 @@ lede: Data kependudukan Dusun Melian yang diperbarui secara berkala.
         }
       }
     });
+    // Age Chart
+    const ctxAge = document.getElementById('ageChart');
+    const ageLabels = [
+      {% for item in s.umur %}
+        "{{ item.label }}"{% if forloop.last == false %},{% endif %}
+      {% endfor %}
+    ];
+    const ageData = [
+      {% for item in s.umur %}
+        {{ item.jumlah }}{% if forloop.last == false %},{% endif %}
+      {% endfor %}
+    ];
+    
+    new Chart(ctxAge, {
+      type: 'doughnut',
+      data: {
+        labels: ageLabels,
+        datasets: [{
+          data: ageData,
+          backgroundColor: ['#1d5c42', '#c9971f', '#895c38', '#2d6a4f', '#e8c468'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom' }
+        }
+      }
+    });
   });
 </script>
 
@@ -116,6 +151,21 @@ lede: Data kependudukan Dusun Melian yang diperbarui secara berkala.
     </thead>
     <tbody>
       {% for item in s.mata_pencaharian %}
+      <tr><td>{{ item.label }}</td><td>{{ item.jumlah }} orang</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% if s.umur %}
+<h2 style="margin-top: 3rem;"><i class="bi bi-person-lines-fill"></i> Kelompok Umur</h2>
+<div class="stat-table-wrap">
+  <table class="stat-table">
+    <thead>
+      <tr><th>Kategori Umur</th><th>Jumlah</th></tr>
+    </thead>
+    <tbody>
+      {% for item in s.umur %}
       <tr><td>{{ item.label }}</td><td>{{ item.jumlah }} orang</td></tr>
       {% endfor %}
     </tbody>

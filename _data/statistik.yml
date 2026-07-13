@@ -16,3 +16,10 @@ mata_pencaharian:
     jumlah: 6
   - label: "Lainnya"
     jumlah: 43
+umur:
+  - label: "0-14 Tahun (Anak-anak)"
+    jumlah: 65
+  - label: "15-64 Tahun (Produktif)"
+    jumlah: 210
+  - label: "65+ Tahun (Lansia)"
+    jumlah: 35

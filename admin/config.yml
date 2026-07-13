@@ -151,6 +151,12 @@ collections:
             fields:
               - { label: "Jenis Pekerjaan", name: "label", widget: "string" }
               - { label: "Jumlah", name: "jumlah", widget: "number" }
+          - label: "Kelompok Umur"
+            name: "umur"
+            widget: "list"
+            fields:
+              - { label: "Kategori Umur", name: "label", widget: "string" }
+              - { label: "Jumlah", name: "jumlah", widget: "number" }
 
   - name: "galeri_data"
     label: "Galeri"
