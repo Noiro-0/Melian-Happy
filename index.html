@@ -42,6 +42,14 @@ title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
     <button class="slider-arrow slider-next" id="sliderNext" aria-label="Slide berikutnya">
       <i class="bi bi-chevron-right"></i>
     </button>
+
+    <!-- Dot Indicators -->
+    <div class="slider-dots" id="sliderDots">
+      {% for slide in site.data.slider.slides %}
+      <button class="slider-dot {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}"
+        aria-label="Slide {{ forloop.index }}"></button>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -52,11 +60,39 @@ title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
     var prevBtn = document.getElementById('sliderPrev');
     var nextBtn = document.getElementById('sliderNext');
     var slides = document.querySelectorAll('.standalone-slide');
+    var dots = document.querySelectorAll('.slider-dot');
     if (!track || slides.length === 0) return;
 
     function getSlideWidth() {
-      return slides[0].offsetWidth;
+      // Include the gap (approx 24px = 1.5rem)
+      return slides[0].offsetWidth + 24;
     }
+
+    // Update active dot based on scroll position
+    track.addEventListener('scroll', function() {
+      var scrollLeft = track.scrollLeft;
+      var trackHalfWidth = track.clientWidth / 2;
+      var closestIndex = 0;
+      var minDistance = Infinity;
+      
+      slides.forEach(function(slide, idx) {
+        var slideCenter = slide.offsetLeft - track.offsetLeft + slide.offsetWidth / 2;
+        var viewCenter = scrollLeft + trackHalfWidth;
+        var distance = Math.abs(slideCenter - viewCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = idx;
+        }
+      });
+      
+      dots.forEach(function(dot, idx) {
+        if (idx === closestIndex) {
+          dot.classList.add('is-active');
+        } else {
+          dot.classList.remove('is-active');
+        }
+      });
+    });
 
     if (prevBtn) {
       prevBtn.addEventListener('click', function () {
@@ -68,6 +104,14 @@ title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
         track.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
       });
     }
+
+    // Click on dots to jump to slide
+    dots.forEach(function(dot, idx) {
+      dot.addEventListener('click', function() {
+        var paddingOffset = 32; // 2rem padding in track
+        track.scrollTo({ left: slides[idx].offsetLeft - track.offsetLeft - paddingOffset, behavior: 'smooth' });
+      });
+    });
   })();
 </script>
 

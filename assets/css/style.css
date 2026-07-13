@@ -519,30 +519,36 @@ p {
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  padding: 2rem;
+  gap: 1.5rem;
 }
 .standalone-slider-track::-webkit-scrollbar {
   display: none;
 }
 
 .standalone-slide {
-  flex: 0 0 33.3333%;
-  height: 60vh;
-  min-height: 400px;
+  flex: 0 0 calc(33.3333% - 1rem);
+  height: 55vh;
+  min-height: 380px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   scroll-snap-align: start;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
 }
 
 @media (max-width: 860px) {
   .standalone-slide {
-    flex: 0 0 50%;
+    flex: 0 0 calc(50% - 0.75rem);
   }
 }
 
 @media (max-width: 480px) {
   .standalone-slide {
-    flex: 0 0 100%;
+    flex: 0 0 85%;
+    scroll-snap-align: center;
   }
 }
 
