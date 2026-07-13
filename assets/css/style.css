@@ -4,22 +4,22 @@
    ========================================================================== */
 
 :root {
-  /* Color — GREEN GOLD THEME (preserved) */
-  --pine: #1B4332;
-  --pine-dark: #0F2A20;
-  --pine-light: #2D6A4F;
-  --pine-muted: #3A7D5E;
-  --mist: #F0F4F2;
-  --mist-alt: #E8EDE9;
-  --card: #FFFFFF;
-  --gold: #C9971F;
-  --gold-light: #E8C468;
-  --gold-soft: rgba(201, 151, 31, 0.12);
-  --clay: #8B4A2B;
-  --ink: #1A2E23;
-  --ink-light: #374840;
-  --muted: #6B7B72;
-  --border: #D8DFD9;
+  /* Color — GREEN GOLD THEME (matching logo) */
+  --pine: #214336;
+  --pine-dark: #122820;
+  --pine-light: #315F4C;
+  --pine-muted: #437661;
+  --mist: #EAE4D8;
+  --mist-alt: #DFD7C8;
+  --card: #F4EFE6;
+  --gold: #B08955;
+  --gold-light: #C9A779;
+  --gold-soft: rgba(176, 137, 85, 0.12);
+  --clay: #895C38;
+  --ink: #1C2421;
+  --ink-light: #38423E;
+  --muted: #6C7470;
+  --border: #D1C9B9;
 
   /* Type */
   --font-display: "Poppins", "Segoe UI", Roboto, Arial, sans-serif;
@@ -1360,4 +1360,61 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
    ========================================================================== */
 @media (max-width: 920px) {
   .container { padding: 0 1.25rem; }
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+.lightbox-modal.show {
+  opacity: 1;
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+.lightbox-modal.show .lightbox-content {
+  transform: scale(1);
+}
+#lightboxCaption {
+  margin-top: 15px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 10000;
+}
+.lightbox-close:hover,
+.lightbox-close:focus {
+  color: var(--gold);
+  text-decoration: none;
+  cursor: pointer;
 }

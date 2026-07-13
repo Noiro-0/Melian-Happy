@@ -6,7 +6,7 @@ lede: Dokumentasi kegiatan dan keseharian warga Dusun Melian.
 ---
 <div class="gallery-grid">
   {% for foto in site.data.galeri.galeri %}
-  <figure class="gallery-item">
+  <figure class="gallery-item" onclick="openLightbox('{{ foto.gambar | relative_url }}', '{{ foto.judul | escape }}')" style="cursor: pointer;">
     <div class="frame">
       <img src="{{ foto.gambar | relative_url }}" alt="{{ foto.judul }}" loading="lazy">
     </div>
@@ -16,3 +16,40 @@ lede: Dokumentasi kegiatan dan keseharian warga Dusun Melian.
   <p>Belum ada foto galeri. Tambahkan lewat menu <strong>Galeri</strong> di CMS.</p>
   {% endfor %}
 </div>
+
+<!-- Lightbox Modal -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" id="lightboxImage">
+  <div id="lightboxCaption"></div>
+</div>
+
+<script>
+  function openLightbox(src, caption) {
+    var modal = document.getElementById('lightboxModal');
+    var img = document.getElementById('lightboxImage');
+    var cap = document.getElementById('lightboxCaption');
+    
+    modal.style.display = "flex";
+    // Trigger reflow for animation
+    void modal.offsetWidth;
+    modal.classList.add('show');
+    
+    img.src = src;
+    cap.innerText = caption;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    var modal = document.getElementById('lightboxModal');
+    modal.classList.remove('show');
+    setTimeout(() => {
+      modal.style.display = "none";
+      document.body.style.overflow = 'auto';
+    }, 300); // match transition duration
+  }
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") closeLightbox();
+  });
+</script>
