@@ -1418,3 +1418,34 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
   text-decoration: none;
   cursor: pointer;
 }
+.lightbox-prev,
+.lightbox-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.3s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  z-index: 10000;
+}
+.lightbox-prev {
+  left: 20px;
+  border-radius: 0 3px 3px 0;
+}
+.lightbox-next {
+  right: 20px;
+  border-radius: 3px 0 0 3px;
+}
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--gold);
+}
