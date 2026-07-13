@@ -252,7 +252,8 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
 .nav-brand .nav-logo {
   width: 40px;
   height: 40px;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 50%;
   flex-shrink: 0;
 }
 .nav-brand small {
@@ -1229,7 +1230,8 @@ p { margin: 0 0 1rem; color: var(--ink-light); }
 .footer-brand img {
   width: 40px;
   height: 40px;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .footer-brand strong {
   font-family: var(--font-display);

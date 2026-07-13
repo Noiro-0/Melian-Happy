@@ -21,7 +21,7 @@ auth:
 # Add site links in Decap CMS (optional)
 site_url: https://melianhappy.vercel.app
 
-logo_url: /admin/logo.svg
+logo_url: /assets/img/logo.jpg
 
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"

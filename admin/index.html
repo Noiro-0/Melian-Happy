@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin – Melian Happy</title>
-  <link rel="icon" href="/admin/logo.svg" type="image/svg+xml" />
+  <link rel="icon" href="/admin/logo.jpg" type="image/jpeg" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -13,12 +14,41 @@
       }
     }
   </script>
+  <style>
+    /* Make the Decap CMS login logo round */
+    [class*="Logo-"] img, 
+    img[src*="logo.jpg"] {
+      border-radius: 50% !important;
+      object-fit: cover !important;
+      aspect-ratio: 1/1 !important;
+    }
+  </style>
 </head>
+
 <body>
   <link rel="cms-config-url" href="/admin/config.yml" type="text/yaml" />
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
     CMS.registerPreviewStyle("preview.css");
+    
+    // Script to dynamically make the favicon round
+    const favImg = new Image();
+    favImg.src = '/admin/logo.jpg';
+    favImg.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = canvas.height = 128;
+      const ctx = canvas.getContext('2d');
+      ctx.beginPath();
+      ctx.arc(64, 64, 64, 0, Math.PI * 2);
+      ctx.clip();
+      ctx.drawImage(favImg, 0, 0, 128, 128);
+      let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+      link.type = 'image/png';
+      link.rel = 'icon';
+      link.href = canvas.toDataURL('image/png');
+      document.head.appendChild(link);
+    };
   </script>
 </body>
+
 </html>
