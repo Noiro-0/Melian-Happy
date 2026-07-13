@@ -3,36 +3,12 @@ layout: default
 title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
 ---
 <section class="hero">
-  <div class="hero-card">
-    <!-- Slider Background Images -->
-    <div class="hero-slider" id="heroSlider">
-      {% for slide in site.data.slider.slides %}
-      <div class="hero-slide {% if forloop.first %}is-active{% endif %}"
-        style="background-image: url('{{ slide.gambar | relative_url }}');">
-      </div>
-      {% endfor %}
-    </div>
-
+  <div class="hero-card" style="background-image: url('{{ '/assets/img/uploads/peta-pemukiman.jpg' | relative_url }}'); background-size: cover; background-position: center;">
+    
     <!-- Dark overlay for text readability -->
     <div class="hero-overlay"></div>
 
-    <!-- Slider Controls -->
-    <button class="slider-arrow slider-prev" id="sliderPrev" aria-label="Slide sebelumnya">
-      <i class="bi bi-chevron-left"></i>
-    </button>
-    <button class="slider-arrow slider-next" id="sliderNext" aria-label="Slide berikutnya">
-      <i class="bi bi-chevron-right"></i>
-    </button>
-
-    <!-- Dot Indicators -->
-    <div class="slider-dots" id="sliderDots">
-      {% for slide in site.data.slider.slides %}
-      <button class="slider-dot {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}"
-        aria-label="Slide {{ forloop.index }}"></button>
-      {% endfor %}
-    </div>
-
-    <!-- Content (overlaid on slider) -->
+    <!-- Content (overlaid on map) -->
     <div class="hero-card-content">
       <h1 class="animate-fade-in-up">{{ site.dusun.nama | split: " " | first }} {{ site.dusun.nama | split: " " | last
         }}<br><span class="hero-accent">Desa {{ site.dusun.desa }}</span></h1>
@@ -50,10 +26,37 @@ title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
   </div>
 </section>
 
+<!-- Standalone Image Slider below Hero -->
+<section class="standalone-slider-wrapper">
+  <div class="standalone-slider" id="heroSlider">
+    {% for slide in site.data.slider.slides %}
+    <div class="standalone-slide {% if forloop.first %}is-active{% endif %}"
+      style="background-image: url('{{ slide.gambar | relative_url }}');">
+    </div>
+    {% endfor %}
+    
+    <!-- Slider Controls -->
+    <button class="slider-arrow slider-prev" id="sliderPrev" aria-label="Slide sebelumnya">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    <button class="slider-arrow slider-next" id="sliderNext" aria-label="Slide berikutnya">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+
+    <!-- Dot Indicators -->
+    <div class="slider-dots" id="sliderDots">
+      {% for slide in site.data.slider.slides %}
+      <button class="slider-dot {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}"
+        aria-label="Slide {{ forloop.index }}"></button>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 <!-- Hero Slider Script -->
 <script>
   (function () {
-    var slides = document.querySelectorAll('.hero-slide');
+    var slides = document.querySelectorAll('.standalone-slide');
     var dots = document.querySelectorAll('.slider-dot');
     var prevBtn = document.getElementById('sliderPrev');
     var nextBtn = document.getElementById('sliderNext');
