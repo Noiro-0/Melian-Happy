@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Beranda
+title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
 ---
 <section class="hero">
   <div class="hero-card">
@@ -164,8 +164,9 @@ title: Beranda
     </div>
 
     {% if site.posts.size > 0 %}
+    {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
     <div class="news-grid">
-      {% for post in site.posts limit:3 %}
+      {% for post in sorted_posts limit:6 %}
       <a class="news-card" href="{{ post.url | relative_url }}">
         <div class="news-card-image">
           {% if post.image %}
@@ -196,7 +197,7 @@ title: Beranda
       {% endfor %}
     </div>
     <div class="see-all-wrap">
-      <a href="{{ '/berita' | relative_url }}" class="see-all-link">Lihat Lainnya <i
+      <a href="{{ '/berita' | relative_url }}" class="see-all-link">Lihat Selengkapnya <i
           class="bi bi-chevron-right"></i></a>
     </div>
     {% else %}
