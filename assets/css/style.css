@@ -4,35 +4,39 @@
    ========================================================================== */
 
 :root {
-  /* Color — GREEN GOLD THEME (matching logo) */
-  --pine: #214336;
-  --pine-dark: #122820;
-  --pine-light: #315F4C;
-  --pine-muted: #437661;
-  --mist: #EAE4D8;
-  --mist-alt: #DFD7C8;
-  --card: #F4EFE6;
-  --gold: #B08955;
-  --gold-light: #C9A779;
-  --gold-soft: rgba(176, 137, 85, 0.12);
-  --clay: #895C38;
-  --ink: #1C2421;
-  --ink-light: #38423E;
-  --muted: #6C7470;
-  --border: #D1C9B9;
+  /* Color — Wabi-Sabi Authentic Theme */
+  --pine: #5E6B4B; /* Hutan Jati */
+  --pine-dark: #475239; /* Darker Hutan Jati */
+  --pine-light: #7A8B5E;
+  --pine-muted: #5E6B4B;
+  --mist: #E8DDCB; /* Kertas Lontar */
+  --mist-alt: #F5ECD7;
+  --card: #F5ECD7;
+  --gold: #C87A5A; /* Bata Merah / Terakota */
+  --gold-light: #D98C6D;
+  --gold-soft: rgba(200, 122, 90, 0.12);
+  --clay: #8B7355; /* Tanah Tegalan */
+  --ink: #302B26; /* Warm Ink */
+  --ink-light: #595147;
+  --muted: #9A9B93; /* Batu Karst */
+  --border: #B0A89A;
 
   /* Type */
-  --font-display: "Poppins", "Segoe UI", Roboto, Arial, sans-serif;
-  --font-body: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Nunito", "Segoe UI", sans-serif;
+  --font-accent: "Caveat", cursive;
 
-  /* Shape */
+  /* Shape - Irregular radii for wabi-sabi */
   --radius: 16px;
-  --radius-sm: 10px;
-  --radius-lg: 20px;
-  --radius-xl: 24px;
-  --shadow: 0 12px 40px -12px rgba(15, 42, 32, 0.18);
-  --shadow-sm: 0 4px 16px -6px rgba(15, 42, 32, 0.12);
-  --shadow-lg: 0 20px 60px -15px rgba(15, 42, 32, 0.22);
+  --radius-sm: 8px;
+  --radius-wabi: 255px 15px 225px 15px/15px 225px 15px 255px;
+  --radius-wabi-img: 10px 200px 10px 200px/200px 10px 200px 10px;
+
+  /* Hard Shadows */
+  --shadow: 8px 8px 0px var(--pine);
+  --shadow-sm: 4px 4px 0px var(--pine);
+  --shadow-lg: 12px 12px 0px var(--gold);
+  --shadow-btn: 3px 3px 0px var(--clay);
 
   /* Layout */
   --container: 1280px;
@@ -51,7 +55,8 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  background: var(--mist);
+  background-color: var(--mist);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
   color: var(--ink);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -122,25 +127,26 @@ p {
   padding: 0.8rem 1.6rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
-  border: 2px solid transparent;
+  border: 2px solid var(--clay);
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--clay);
 }
 
 .btn-gold {
   background: var(--gold);
   color: #fff;
-  box-shadow: 0 4px 14px rgba(201, 151, 31, 0.35);
+  box-shadow: 4px 4px 0px var(--clay);
 }
 
 .btn-gold:hover {
   background: var(--gold-light);
-  color: var(--pine-dark);
-  box-shadow: 0 6px 20px rgba(201, 151, 31, 0.45);
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--clay);
 }
 
 .btn-outline-hero {
@@ -267,16 +273,16 @@ p {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(232, 221, 203, 0.95); /* Kertas Lontar */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid var(--border);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar.scrolled {
-  border-bottom-color: var(--border);
-  box-shadow: 0 2px 20px rgba(15, 42, 32, 0.06);
+  border-bottom-color: var(--clay);
+  box-shadow: 0 4px 0px var(--pine);
 }
 
 .navbar-inner {
@@ -794,37 +800,22 @@ p {
 
 .service-card {
   background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border: 2px solid var(--clay);
+  border-radius: var(--radius-wabi);
   padding: 2rem 1.5rem;
   text-decoration: none;
   color: var(--ink);
   text-align: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
-}
-
-.service-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px) rotate(-1deg);
   box-shadow: var(--shadow);
   border-color: var(--gold);
-}
-
-.service-card:hover::before {
-  transform: scaleX(1);
 }
 
 .service-icon {
@@ -894,20 +885,21 @@ p {
 
 .news-card {
   background: var(--card);
-  border-radius: var(--radius);
+  border-radius: var(--radius-wabi);
   overflow: hidden;
   text-decoration: none;
   color: var(--ink);
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid var(--clay);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .news-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px) rotate(1deg);
   box-shadow: var(--shadow);
+  border-color: var(--gold);
 }
 
 .news-card-image {
@@ -1453,19 +1445,20 @@ p {
 
 .potensi-card {
   background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border: 2px solid var(--clay);
+  border-radius: var(--radius-wabi);
   overflow: hidden;
   text-decoration: none;
   color: var(--ink);
   display: block;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .potensi-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px) rotate(1deg);
   box-shadow: var(--shadow);
+  border-color: var(--gold);
 }
 
 .potensi-card .thumb {
@@ -1532,10 +1525,12 @@ p {
 }
 
 .gallery-item .frame {
-  border-radius: var(--radius);
+  border: 2px solid var(--clay);
+  border-radius: var(--radius-wabi-img);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   aspect-ratio: 4 / 3;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .gallery-item img {
@@ -1543,6 +1538,12 @@ p {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+  filter: sepia(0.1) contrast(1.1);
+}
+
+.gallery-item:hover .frame {
+  transform: translateY(-5px) rotate(-1deg);
+  box-shadow: var(--shadow);
 }
 
 .gallery-item:hover img {
