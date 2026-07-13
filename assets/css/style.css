@@ -4,39 +4,39 @@
    ========================================================================== */
 
 :root {
-  /* Color — Wabi-Sabi Authentic Theme */
-  --pine: #5E6B4B; /* Hutan Jati */
-  --pine-dark: #475239; /* Darker Hutan Jati */
-  --pine-light: #7A8B5E;
-  --pine-muted: #5E6B4B;
-  --mist: #E8DDCB; /* Kertas Lontar */
-  --mist-alt: #F5ECD7;
-  --card: #F5ECD7;
-  --gold: #C87A5A; /* Bata Merah / Terakota */
-  --gold-light: #D98C6D;
-  --gold-soft: rgba(200, 122, 90, 0.12);
-  --clay: #8B7355; /* Tanah Tegalan */
-  --ink: #302B26; /* Warm Ink */
-  --ink-light: #595147;
-  --muted: #9A9B93; /* Batu Karst */
-  --border: #B0A89A;
+  /* Color — Minimalist Modern Theme */
+  --pine: #047857; /* Emerald 700 */
+  --pine-dark: #064E3B; /* Emerald 900 */
+  --pine-light: #34D399; /* Emerald 400 */
+  --pine-muted: #10B981; /* Emerald 500 */
+  --mist: #F8FAFC; /* Slate 50 */
+  --mist-alt: #F1F5F9; /* Slate 100 */
+  --card: #FFFFFF; /* Pure White */
+  --gold: #0F172A; /* Slate 900 for dark contrast elements */
+  --gold-light: #334155; /* Slate 700 */
+  --gold-soft: #F8FAFC; /* Slate 50 */
+  --clay: #E2E8F0; /* Slate 200 / border */
+  --ink: #0F172A; /* Slate 900 */
+  --ink-light: #475569; /* Slate 600 */
+  --muted: #64748B; /* Slate 500 */
+  --border: #E2E8F0; /* Slate 200 */
 
   /* Type */
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body: "Nunito", "Segoe UI", sans-serif;
-  --font-accent: "Caveat", cursive;
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-accent: "Inter", sans-serif;
 
-  /* Shape - Irregular radii for wabi-sabi */
-  --radius: 16px;
+  /* Shape - Standard geometry */
+  --radius: 12px;
   --radius-sm: 8px;
-  --radius-wabi: 255px 15px 225px 15px/15px 225px 15px 255px;
-  --radius-wabi-img: 10px 200px 10px 200px/200px 10px 200px 10px;
+  --radius-wabi: 12px; 
+  --radius-wabi-img: 12px;
 
-  /* Hard Shadows */
-  --shadow: 8px 8px 0px var(--pine);
-  --shadow-sm: 4px 4px 0px var(--pine);
-  --shadow-lg: 12px 12px 0px var(--gold);
-  --shadow-btn: 3px 3px 0px var(--clay);
+  /* Soft Realistic Shadows */
+  --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-btn: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
   /* Layout */
   --container: 1280px;
@@ -55,10 +55,9 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  background-color: var(--mist);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  background: var(--mist);
   color: var(--ink);
-  line-height: 1.7;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -127,26 +126,31 @@ p {
   padding: 0.8rem 1.6rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
-  border: 2px solid var(--clay);
+  border: 1px solid var(--border);
   cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--shadow-btn);
+  transition: all 0.2s ease-out;
 }
 
 .btn:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 0px 0px 0px var(--clay);
+  background: var(--mist-alt);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-gold {
-  background: var(--gold);
+  background: var(--pine);
   color: #fff;
-  box-shadow: 4px 4px 0px var(--clay);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-btn);
 }
 
 .btn-gold:hover {
-  background: var(--gold-light);
-  transform: translate(2px, 2px);
-  box-shadow: 0px 0px 0px var(--clay);
+  background: var(--pine-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-outline-hero {
@@ -273,16 +277,16 @@ p {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(232, 221, 203, 0.95); /* Kertas Lontar */
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 2px solid var(--border);
+  border-bottom: 1px solid transparent;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar.scrolled {
-  border-bottom-color: var(--clay);
-  box-shadow: 0 4px 0px var(--pine);
+  border-bottom-color: var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .navbar-inner {
@@ -800,22 +804,22 @@ p {
 
 .service-card {
   background: var(--card);
-  border: 2px solid var(--clay);
-  border-radius: var(--radius-wabi);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   padding: 2rem 1.5rem;
   text-decoration: none;
   color: var(--ink);
   text-align: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.2s ease-out;
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-sm);
 }
 
 .service-card:hover {
-  transform: translateY(-5px) rotate(-1deg);
+  transform: translateY(-4px);
   box-shadow: var(--shadow);
-  border-color: var(--gold);
+  border-color: var(--pine-light);
 }
 
 .service-icon {
@@ -885,21 +889,21 @@ p {
 
 .news-card {
   background: var(--card);
-  border-radius: var(--radius-wabi);
+  border-radius: var(--radius);
   overflow: hidden;
   text-decoration: none;
   color: var(--ink);
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-sm);
-  border: 2px solid var(--clay);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease-out;
 }
 
 .news-card:hover {
-  transform: translateY(-5px) rotate(1deg);
+  transform: translateY(-4px);
   box-shadow: var(--shadow);
-  border-color: var(--gold);
+  border-color: var(--pine-light);
 }
 
 .news-card-image {
@@ -1445,20 +1449,20 @@ p {
 
 .potensi-card {
   background: var(--card);
-  border: 2px solid var(--clay);
-  border-radius: var(--radius-wabi);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   overflow: hidden;
   text-decoration: none;
   color: var(--ink);
   display: block;
   box-shadow: var(--shadow-sm);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.2s ease-out;
 }
 
 .potensi-card:hover {
-  transform: translateY(-5px) rotate(1deg);
+  transform: translateY(-4px);
   box-shadow: var(--shadow);
-  border-color: var(--gold);
+  border-color: var(--pine-light);
 }
 
 .potensi-card .thumb {
@@ -1525,12 +1529,12 @@ p {
 }
 
 .gallery-item .frame {
-  border: 2px solid var(--clay);
-  border-radius: var(--radius-wabi-img);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   aspect-ratio: 4 / 3;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.2s ease-out;
 }
 
 .gallery-item img {
@@ -1538,12 +1542,13 @@ p {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
-  filter: sepia(0.1) contrast(1.1);
+  filter: none;
 }
 
 .gallery-item:hover .frame {
-  transform: translateY(-5px) rotate(-1deg);
+  transform: translateY(-4px);
   box-shadow: var(--shadow);
+  border-color: var(--pine-light);
 }
 
 .gallery-item:hover img {
