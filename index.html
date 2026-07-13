@@ -29,11 +29,11 @@ title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
 <!-- Standalone Image Slider below Hero -->
 <section class="standalone-slider-wrapper">
   <div class="standalone-slider" id="heroSlider">
-    {% for slide in site.data.slider.slides %}
-    <div class="standalone-slide {% if forloop.first %}is-active{% endif %}"
-      style="background-image: url('{{ slide.gambar | relative_url }}');">
+    <div class="standalone-slider-track" id="sliderTrack">
+      {% for slide in site.data.slider.slides %}
+      <div class="standalone-slide" style="background-image: url('{{ slide.gambar | relative_url }}');"></div>
+      {% endfor %}
     </div>
-    {% endfor %}
     
     <!-- Slider Controls -->
     <button class="slider-arrow slider-prev" id="sliderPrev" aria-label="Slide sebelumnya">
@@ -42,61 +42,32 @@ title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
     <button class="slider-arrow slider-next" id="sliderNext" aria-label="Slide berikutnya">
       <i class="bi bi-chevron-right"></i>
     </button>
-
-    <!-- Dot Indicators -->
-    <div class="slider-dots" id="sliderDots">
-      {% for slide in site.data.slider.slides %}
-      <button class="slider-dot {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}"
-        aria-label="Slide {{ forloop.index }}"></button>
-      {% endfor %}
-    </div>
   </div>
 </section>
 
 <!-- Hero Slider Script -->
 <script>
   (function () {
-    var slides = document.querySelectorAll('.standalone-slide');
-    var dots = document.querySelectorAll('.slider-dot');
+    var track = document.getElementById('sliderTrack');
     var prevBtn = document.getElementById('sliderPrev');
     var nextBtn = document.getElementById('sliderNext');
-    var current = 0;
-    var total = slides.length;
-    var interval = 5000; // 5 seconds auto-play
-    var timer;
+    var slides = document.querySelectorAll('.standalone-slide');
+    if (!track || slides.length === 0) return;
 
-    function goTo(index) {
-      slides[current].classList.remove('is-active');
-      dots[current].classList.remove('is-active');
-      current = (index + total) % total;
-      slides[current].classList.add('is-active');
-      dots[current].classList.add('is-active');
+    function getSlideWidth() {
+      return slides[0].offsetWidth;
     }
 
-    function next() { goTo(current + 1); }
-    function prev() { goTo(current - 1); }
-
-    function startAuto() {
-      stopAuto();
-      timer = setInterval(next, interval);
-    }
-    function stopAuto() {
-      if (timer) clearInterval(timer);
-    }
-
-    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); startAuto(); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { next(); startAuto(); });
-
-    dots.forEach(function (dot) {
-      dot.addEventListener('click', function () {
-        goTo(parseInt(this.getAttribute('data-index'), 10));
-        startAuto();
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        track.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
       });
-    });
-
-
-
-    if (total > 1) startAuto();
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        track.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
+      });
+    }
   })();
 </script>
 
