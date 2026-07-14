@@ -36,6 +36,20 @@
       var isOpen = links.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       toggle.innerHTML = isOpen ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+      document.body.style.overflow = isOpen ? 'hidden' : ''; // Prevent scroll behind overlay
+    });
+
+    // Close menu when a link is clicked
+    var navAnchors = links.querySelectorAll('a');
+    navAnchors.forEach(function (anchor) {
+      anchor.addEventListener('click', function () {
+        if (links.classList.contains('is-open')) {
+          links.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.innerHTML = '<i class="bi bi-list"></i>';
+          document.body.style.overflow = '';
+        }
+      });
     });
 
     // Navbar scroll effect
