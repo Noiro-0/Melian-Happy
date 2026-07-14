@@ -547,11 +547,11 @@ p {
 .wabi-image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 4/5;
   border-radius: var(--radius-xl); /* M3 Extra Large shape */
   overflow: hidden;
   box-shadow: var(--md-elevation-3);
   transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.5s cubic-bezier(0.2, 0, 0, 1);
+  background: var(--md-sys-color-surface-variant);
 }
 
 .wabi-image-wrapper:hover {
@@ -561,8 +561,8 @@ p {
 
 .wabi-image-wrapper img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 
 .wabi-accent {
@@ -591,7 +591,6 @@ p {
     margin: 0 auto 2.5rem;
   }
   .wabi-image-wrapper {
-    aspect-ratio: 16/9;
     max-width: 600px;
     margin: 0 auto;
   }
@@ -602,14 +601,13 @@ p {
   width: 100%;
   margin: 0;
   padding: 4rem 0;
-  background: var(--card);
+  background: var(--md-sys-color-background);
 }
 
 .standalone-slider {
   position: relative;
   width: 100%;
-  background: var(--card);
-  overflow: hidden;
+  background: var(--md-sys-color-background);
 }
 
 .standalone-slider-track {
