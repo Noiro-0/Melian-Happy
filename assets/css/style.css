@@ -405,6 +405,12 @@ p {
 }
 
 @media (max-width: 920px) {
+  .navbar-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 0.75rem 1rem 0;
+  }
+
   .nav-brand {
     order: 1;
   }
@@ -412,63 +418,62 @@ p {
   .nav-cta {
     order: 2;
     margin-left: auto;
-    margin-right: 1rem;
   }
 
   .nav-toggle {
-    order: 3;
-    display: inline-flex;
-  }
-
-  .navbar-inner {
-    height: 54px;
-    padding: 0 1rem;
+    display: none;
   }
 
   .nav-links {
-    position: fixed;
-    top: 54px; /* Just below the navbar */
-    left: 0;
-    right: 0;
-    height: calc(100vh - 54px);
-    background: rgba(245, 245, 247, 0.95);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 2rem 1.5rem;
-    gap: 1.5rem;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s cubic-bezier(0.2, 0, 0, 1), transform 0.3s cubic-bezier(0.2, 0, 0, 1), visibility 0.3s;
-    overflow-y: auto;
+    order: 3;
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 1.25rem;
+    padding: 0.75rem 0;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+    
+    /* Reset overlay styles */
+    position: static;
+    height: auto;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .nav-links::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-links.is-open {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
+    /* No longer used */
   }
 
   .nav-links a {
-    width: 100%;
-    font-size: 1.75rem; /* Large HIG typography for mobile menu */
-    font-weight: 700;
-    color: var(--md-sys-color-on-background);
+    width: auto;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
     padding: 0;
-    border-bottom: none;
-    letter-spacing: -0.02em;
-    transition: opacity 0.2s;
+    letter-spacing: 0;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent; /* for active state indicator */
   }
   
   .nav-links a:active {
-    opacity: 0.5;
+    opacity: 1;
   }
 
   .nav-links a.is-active {
     color: var(--md-sys-color-primary);
+    border-bottom-color: var(--md-sys-color-primary);
   }
 }
 
