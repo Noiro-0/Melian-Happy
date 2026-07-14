@@ -1,25 +1,7 @@
 tahun: 2026
-jumlah_kk: 78
-jumlah_penduduk: 310
-laki_laki: 158
-perempuan: 152
-mata_pencaharian:
-  - label: "Petani"
-    jumlah: 172
-  - label: "Buruh Tani"
-    jumlah: 46
-  - label: "Pedagang / UMKM"
-    jumlah: 28
-  - label: "Peternak"
-    jumlah: 15
-  - label: "Perangkat Desa / PNS"
-    jumlah: 6
-  - label: "Lainnya"
-    jumlah: 43
-umur:
-  - label: "0-14 Tahun (Anak-anak)"
-    jumlah: 65
-  - label: "15-64 Tahun (Produktif)"
-    jumlah: 210
-  - label: "65+ Tahun (Lansia)"
-    jumlah: 35
+jumlah_kk: 51
+jumlah_penduduk: 131
+laki_laki: 65
+perempuan: 66
+mata_pencaharian: []
+umur: []
