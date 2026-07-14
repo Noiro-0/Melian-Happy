@@ -2,31 +2,31 @@
    ========================================================================== */
 
 :root {
-  --md-sys-color-primary: #007AFF; /* Apple System Blue */
+  --md-sys-color-primary: #2B5748; /* Deep Green from palette */
   --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #E5F1FF;
-  --md-sys-color-on-primary-container: #1D1D1F;
-  --md-sys-color-secondary: #5856D6; /* System Indigo */
+  --md-sys-color-primary-container: #9CB080; /* Sage Green */
+  --md-sys-color-on-primary-container: #273338; /* Darkest Green/Grey */
+  --md-sys-color-secondary: #618764; /* Medium Green */
   --md-sys-color-on-secondary: #FFFFFF;
-  --md-sys-color-secondary-container: #EFEFFB;
-  --md-sys-color-on-secondary-container: #1D1D1F;
-  --md-sys-color-tertiary: #5856D6;
-  --md-sys-color-on-tertiary: #FFFFFF;
-  --md-sys-color-tertiary-container: #EFEFFB;
-  --md-sys-color-on-tertiary-container: #1D1D1F;
+  --md-sys-color-secondary-container: rgba(156, 176, 128, 0.2); /* Very light sage */
+  --md-sys-color-on-secondary-container: #2B5748;
+  --md-sys-color-tertiary: #9CB080;
+  --md-sys-color-on-tertiary: #273338;
+  --md-sys-color-tertiary-container: rgba(156, 176, 128, 0.1);
+  --md-sys-color-on-tertiary-container: #2B5748;
   --md-sys-color-error: #FF3B30;
   --md-sys-color-on-error: #FFFFFF;
   --md-sys-color-error-container: #FFEBEB;
-  --md-sys-color-on-error-container: #1D1D1F;
+  --md-sys-color-on-error-container: #273338;
 
-  --md-sys-color-background: #F5F5F7;
-  --md-sys-color-on-background: #1D1D1F;
+  --md-sys-color-background: #F5F5F7; /* Keep HIG light gray canvas */
+  --md-sys-color-on-background: #273338; /* Text color from palette */
   --md-sys-color-surface: #FFFFFF;
-  --md-sys-color-on-surface: #1D1D1F;
+  --md-sys-color-on-surface: #273338; /* Text color from palette */
   --md-sys-color-surface-variant: #F2F2F7;
-  --md-sys-color-on-surface-variant: #86868B;
-  --md-sys-color-outline: #D2D2D7;
-  --md-sys-color-outline-variant: #E5E5EA;
+  --md-sys-color-on-surface-variant: #618764; /* Medium green for secondary text */
+  --md-sys-color-outline: #9CB080; /* Outline from palette */
+  --md-sys-color-outline-variant: rgba(156, 176, 128, 0.3);
 
   --md-elevation-1: 0 4px 14px rgba(0, 0, 0, 0.05);
   --md-elevation-2: 0 8px 24px rgba(0, 0, 0, 0.06);
@@ -228,7 +228,7 @@ p {
   font-weight: 600;
   font-size: 0.85rem;
   text-decoration: none;
-  color: var(--pine);
+  color: var(--md-sys-color-primary);
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
@@ -236,7 +236,7 @@ p {
 }
 
 .section-head .see-all:hover {
-  color: var(--gold);
+  color: var(--md-sys-color-primary);
 }
 
 /* Eyebrow */
@@ -249,7 +249,7 @@ p {
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--md-sys-color-primary);
   margin-bottom: 0.75rem;
 }
 
@@ -257,7 +257,7 @@ p {
   content: "";
   width: 22px;
   height: 2px;
-  background: var(--gold);
+  background: var(--md-sys-color-primary);
   display: inline-block;
 }
 
@@ -270,7 +270,7 @@ p {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   background: rgba(27, 67, 50, 0.08);
-  color: var(--pine);
+  color: var(--md-sys-color-primary);
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
 }
@@ -1061,7 +1061,7 @@ p {
 }
 
 .post-card-date {
-  background: var(--pine);
+  background: var(--md-sys-color-primary);
   color: #fff;
   border-radius: var(--radius-sm);
   display: flex;
@@ -1135,7 +1135,7 @@ p {
 }
 
 .post-meta .bi {
-  color: var(--gold);
+  color: var(--md-sys-color-primary);
 }
 
 .post-body {
@@ -1152,14 +1152,14 @@ p {
   align-items: center;
   gap: 0.4rem;
   text-decoration: none;
-  color: var(--pine);
+  color: var(--md-sys-color-primary);
   font-weight: 600;
   font-size: 0.9rem;
   margin-top: 2.5rem;
 }
 
 .back-link:hover {
-  color: var(--gold);
+  color: var(--md-sys-color-primary);
 }
 
 /* ==========================================================================
@@ -1712,7 +1712,7 @@ p {
 
 .error-page .bi {
   font-size: 3rem;
-  color: var(--gold);
+  color: var(--md-sys-color-primary);
   margin-bottom: 1rem;
 }
 
@@ -1747,13 +1747,13 @@ p {
 .quick-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow);
-  border-color: var(--gold);
+  border-color: var(--md-sys-color-primary);
 }
 
 .quick-card .bi {
   font-size: 1.5rem;
-  color: var(--gold);
-  background: var(--gold-soft);
+  color: var(--md-sys-color-primary);
+  background: var(--md-sys-color-primary-container);
   width: 44px;
   height: 44px;
   display: inline-flex;
@@ -1843,7 +1843,7 @@ p {
 
 .lightbox-close:hover,
 .lightbox-close:focus {
-  color: var(--gold);
+  color: var(--md-sys-color-primary);
   text-decoration: none;
   cursor: pointer;
 }
@@ -1880,5 +1880,5 @@ p {
 .lightbox-prev:hover,
 .lightbox-next:hover {
   background-color: rgba(0, 0, 0, 0.8);
-  color: var(--gold);
+  color: var(--md-sys-color-primary);
 }
