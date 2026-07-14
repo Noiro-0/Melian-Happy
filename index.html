@@ -2,25 +2,25 @@
 layout: default
 title: "Beranda Website Dusun Melian Desa Candi Kota Pacitan"
 ---
-<section class="hero">
-  <div class="hero-card" style="background-image: url('{{ '/assets/img/uploads/peta-pemukiman.jpg' | relative_url }}'); background-size: cover; background-position: center;">
-    
-    <!-- Dark overlay for text readability -->
-    <div class="hero-overlay"></div>
-
-    <!-- Content (overlaid on map) -->
-    <div class="hero-card-content">
-      <h1 class="animate-fade-in-up">{{ site.dusun.nama | split: " " | first }} {{ site.dusun.nama | split: " " | last
-        }}<br><span class="hero-accent">Desa {{ site.dusun.desa }}</span></h1>
-      <p class="hero-desc animate-fade-in-up" style="animation-delay: 200ms;">
-        Dusun dataran tinggi di lereng Gunung Limo — udara sejuk, panorama perbukitan,
-        dan warga yang hidup dari bertani serta menjaga tradisi gotong royong dari
-        generasi ke generasi.
+<section class="hero bespoke-hero">
+  <div class="bespoke-hero-inner container">
+    <div class="bespoke-hero-content">
+      <div class="eyebrow animate-fade-in-up">Dusun Melian &middot; Desa {{ site.dusun.desa }}</div>
+      <h1 class="animate-fade-in-up" style="animation-delay: 100ms;">Harmoni di Lereng Gunung Limo</h1>
+      <p class="bespoke-hero-desc animate-fade-in-up" style="animation-delay: 200ms;">
+        Dusun dataran tinggi dengan udara sejuk, panorama perbukitan,
+        dan warga yang menjaga tradisi gotong royong dari generasi ke generasi.
       </p>
       <div class="hero-actions">
-        <a href="#layanan-dusun" class="btn btn-gold animate-fade-in-up" style="animation-delay: 400ms;">
-          Jelajahi Sekarang <i class="bi bi-arrow-down"></i>
+        <a href="#layanan-dusun" class="btn btn-gold animate-fade-in-up" style="animation-delay: 300ms;">
+          Jelajahi Dusun <i class="bi bi-arrow-right"></i>
         </a>
+      </div>
+    </div>
+    <div class="bespoke-hero-visual animate-fade-in-up" style="animation-delay: 200ms;">
+      <div class="wabi-image-wrapper">
+        <img src="{{ '/assets/img/uploads/peta-pemukiman.jpg' | relative_url }}" alt="Pemukiman Dusun Melian">
+        <div class="wabi-accent"></div>
       </div>
     </div>
   </div>
