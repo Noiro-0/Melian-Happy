@@ -23,13 +23,8 @@ site_url: https://melianhappy.vercel.app
 
 logo_url: /assets/img/logo.jpg
 
-media_library:
-  name: cloudinary
-  config:
-    cloud_name: "tk8gln90"
-    api_key: "358445197118279"
-    default_transformations:
-      - [{ width: 1200, crop: "limit" }]
+media_folder: "assets/img"
+public_folder: "/assets/img"
 
 collections:
   - name: "berita"
