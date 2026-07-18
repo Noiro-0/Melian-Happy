@@ -1,7 +1,7 @@
 ---
 title: "Sale Pisang Bu Parti "
 kategori: UMKM
-image: /assets/img/uploads/1000103617.jpg
+image: /assets/img/uploads/1000103630.jpg
 bg_color: var(--pine-dark)
 ---
 Produk UMKM Sale Pisang Ibu Parti Dusun Melian
