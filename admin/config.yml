@@ -23,8 +23,13 @@ site_url: https://melianhappy.vercel.app
 
 logo_url: /assets/img/logo.jpg
 
-media_folder: "assets/img/uploads"
-public_folder: "/assets/img/uploads"
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: "tk8gln90"
+    api_key: "358445197118279"
+    default_transformations:
+      - [{ width: 1200, crop: "limit" }]
 
 collections:
   - name: "berita"
@@ -59,6 +64,11 @@ collections:
         default: "var(--pine-dark)"
         required: false
       - { label: "Dokumen PDF (Opsional)", name: "pdf_file", widget: "file", required: false, allow_multiple: false, choose_url: false }
+      - label: "Galeri Foto Tambahan"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Foto", name: "image", widget: "image" }
       - { label: "Isi Berita", name: "body", widget: "markdown" }
 
   - name: "potensi"
@@ -90,6 +100,11 @@ collections:
         default: "var(--pine-dark)"
         required: false
       - { label: "Dokumen PDF (Opsional)", name: "pdf_file", widget: "file", required: false, allow_multiple: false, choose_url: false }
+      - label: "Galeri Foto Tambahan"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Foto", name: "image", widget: "image" }
       - { label: "Deskripsi", name: "body", widget: "markdown" }
 
   - name: "profil"

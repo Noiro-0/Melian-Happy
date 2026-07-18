@@ -31,6 +31,16 @@ layout: default
       </div>
     {% endif %}
 
+    {% if page.gallery %}
+      <div class="post-gallery">
+        {% for img in page.gallery %}
+          <div class="post-gallery-item">
+            <img src="{{ img | relative_url }}" alt="Galeri Foto {{ forloop.index }}" loading="lazy">
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
     <div class="post-body">
       {{ content }}
     </div>

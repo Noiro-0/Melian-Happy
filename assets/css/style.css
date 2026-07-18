@@ -735,22 +735,24 @@ p {
 }
 
 .service-card {
-  background: var(--md-sys-color-surface);
-  border: none;
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  padding: 1.75rem 1.5rem;
   text-decoration: none;
   color: var(--md-sys-color-on-surface);
   text-align: center;
-  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: var(--md-elevation-1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--md-elevation-2);
+  transform: scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
 .service-icon {
@@ -760,20 +762,19 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--md-sys-color-secondary-container);
-  border-radius: var(--radius-sm);
+  background: transparent;
+  border-radius: 16px;
   transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .service-icon .bi {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--md-sys-color-primary);
-  /* Vibrant icon color */
   transition: transform 0.3s;
 }
 
 .service-card:hover .service-icon .bi {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .service-card h3 {
@@ -1506,6 +1507,54 @@ p {
   font-weight: 500;
   color: var(--md-sys-color-on-surface-variant);
   margin-top: 0.75rem;
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ==========================================================================
+   Post Gallery
+   ========================================================================== */
+.post-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.post-gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  aspect-ratio: 4 / 3;
+}
+
+.post-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post-gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .post-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ==========================================================================
