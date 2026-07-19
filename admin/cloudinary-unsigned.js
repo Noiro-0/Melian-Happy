@@ -89,10 +89,18 @@ const CloudinaryUnsignedMediaLibrary = {
         formData.append("file", file);
         formData.append("upload_preset", uploadPreset);
 
+        // Detect resource type based on file MIME type
+        var resourceType = "image";
+        if (file.type && file.type.startsWith("video/")) {
+          resourceType = "video";
+        } else if (file.type && !file.type.startsWith("image/")) {
+          resourceType = "raw";
+        }
+
         const xhr = new XMLHttpRequest();
         xhr.open(
           "POST",
-          "https://api.cloudinary.com/v1_1/" + cloudName + "/auto/upload"
+          "https://api.cloudinary.com/v1_1/" + cloudName + "/" + resourceType + "/upload"
         );
 
         xhr.upload.addEventListener("progress", function (e) {

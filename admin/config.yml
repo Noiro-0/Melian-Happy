@@ -23,6 +23,9 @@ site_url: https://melianhappy.vercel.app
 
 logo_url: /assets/img/logo.jpg
 
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
 media_library:
   name: cloudinary-unsigned
   config:
