@@ -6,33 +6,52 @@ layout: default
     <i class="bi bi-megaphone"></i>
     <h1>{{ page.title }}</h1>
   </div>
-  {% include ridge.html %}
 </section>
 
-<article class="container page-body">
+<article class="container page-body" style="padding-top: 2.5rem;">
   <div class="page-body-inner">
-    <div class="post-meta">
+    <div class="post-meta" style="margin-bottom: 2rem;">
       <span><i class="bi bi-calendar3"></i> {{ page.date | date: "%d %B %Y" }}</span>
       {% if page.author %}<span><i class="bi bi-person"></i> {{ page.author }}</span>{% endif %}
     </div>
 
-    {% if page.image %}
-      <img class="post-hero-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-    {% elsif page.pdf_file %}
-      <div class="post-hero-image" style="height: 400px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #eee; position: relative;">
-        <canvas class="pdf-thumbnail-canvas" data-pdf-url="{{ page.pdf_file | relative_url }}" style="width: 100%; height: auto; object-fit: cover;"></canvas>
-        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;">
-          <a href="{{ page.pdf_file | relative_url }}" target="_blank" class="btn btn-gold"><i class="bi bi-file-earmark-pdf"></i> Lihat / Unduh PDF</a>
-        </div>
-      </div>
+    {% if page.video_file %}
+      {% if page.video_file contains 'http' %}
+        {% assign video_url = page.video_file %}
+      {% else %}
+        {% assign video_url = page.video_file | relative_url %}
+      {% endif %}
+      <video class="post-hero-video" controls preload="metadata">
+        <source src="{{ video_url }}" type="video/mp4">
+        Maaf, browser Anda tidak mendukung pemutar video ini.
+      </video>
+    {% elsif page.image %}
+      {% if page.image contains 'http' %}
+        {% assign image_url = page.image %}
+      {% else %}
+        {% assign image_url = page.image | relative_url %}
+      {% endif %}
+      <img class="post-hero-image" src="{{ image_url }}" alt="{{ page.title }}">
     {% elsif page.bg_color %}
       <div class="post-hero-image" style="background: {{ page.bg_color }}; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;"><i class="bi bi-newspaper"></i></div>
     {% endif %}
 
-    {% if page.pdf_file and page.image %}
-      <div style="margin-bottom: 2rem;">
-        <a href="{{ page.pdf_file | relative_url }}" target="_blank" class="btn btn-outline-hero" style="color: var(--pine); border-color: var(--pine);"><i class="bi bi-file-earmark-pdf"></i> Lihat Dokumen PDF</a>
-      </div>
+    {% if page.pdf_file %}
+      {% if page.pdf_file contains 'http' %}
+        {% assign pdf_url = page.pdf_file %}
+      {% else %}
+        {% assign pdf_url = page.pdf_file | relative_url %}
+      {% endif %}
+      <a href="{{ pdf_url }}" target="_blank" class="pdf-attachment-card">
+        <div class="pdf-icon">
+          <i class="bi bi-file-earmark-pdf-fill"></i>
+        </div>
+        <div class="pdf-info">
+          <div class="pdf-title">Dokumen Lampiran</div>
+          <p class="pdf-meta">Ketuk untuk melihat atau mengunduh dokumen PDF</p>
+        </div>
+        <div class="pdf-action">Buka</div>
+      </a>
     {% endif %}
 
     {% if page.gallery %}
