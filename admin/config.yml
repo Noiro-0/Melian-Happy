@@ -26,11 +26,6 @@ logo_url: /assets/img/logo.jpg
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
 
-media_library:
-  name: cloudinary-unsigned
-  config:
-    cloud_name: "tk8gln90"
-    upload_preset: "melian_uploads"
 
 collections:
   - name: "berita"

@@ -1,0 +1,51 @@
+name: Auto Cleanup Old Images
+
+on:
+  schedule:
+    - cron: '0 19 * * *' # Berjalan setiap jam 02:00 WIB (19:00 UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Dibutuhkan untuk membaca riwayat tanggal commit file
+
+      - name: Cari dan Hapus Gambar Lama
+        id: cleanup
+        run: |
+          DELETED=0
+          if [ -d "assets/img/uploads" ]; then
+            for file in assets/img/uploads/*; do
+              if [ -f "$file" ]; then
+                # Dapatkan waktu saat file pertama kali ditambahkan ke Git
+                ADDED_TIME=$(git log --diff-filter=A --format=%at -1 -- "$file")
+                
+                if [ -n "$ADDED_TIME" ]; then
+                  CURRENT_TIME=$(date +%s)
+                  AGE_DAYS=$(( (CURRENT_TIME - ADDED_TIME) / 86400 ))
+                  
+                  if [ $AGE_DAYS -gt 30 ]; then
+                    echo "Menghapus $file (Umur: $AGE_DAYS hari)"
+                    git rm "$file"
+                    DELETED=1
+                  fi
+                fi
+              fi
+            done
+          fi
+          echo "deleted=$DELETED" >> $GITHUB_OUTPUT
+
+      - name: Commit dan Push Perubahan
+        if: steps.cleanup.outputs.deleted == '1'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m "chore: auto-delete gambar lebih dari 30 hari [skip ci]"
+          git push
