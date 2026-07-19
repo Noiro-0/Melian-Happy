@@ -92,6 +92,24 @@
       });
     });
   </script>
+
+  <!-- Penanganan gambar yang sudah dihapus dari Cloudinary -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll("img").forEach(function(img) {
+        img.addEventListener("error", function() {
+          // Cari parent card/container terdekat dan sembunyikan seluruhnya
+          var card = this.closest(".gallery-item, .news-card, .potensi-card, .post-gallery-item");
+          if (card) {
+            card.style.display = "none";
+            return;
+          }
+          // Untuk hero image / gambar utama artikel, sembunyikan gambarnya saja
+          this.style.display = "none";
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>

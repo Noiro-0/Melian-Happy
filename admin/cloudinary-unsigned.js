@@ -169,6 +169,25 @@ const CloudinaryUnsignedMediaLibrary = {
           var files = Array.from(input.files);
           if (files.length === 0) return;
 
+          // Validate video file size (max 20MB)
+          var MAX_VIDEO_SIZE = 20 * 1024 * 1024; // 20MB
+          for (var v = 0; v < files.length; v++) {
+            if (files[v].type && files[v].type.startsWith("video/") && files[v].size > MAX_VIDEO_SIZE) {
+              var sizeMB = (files[v].size / 1024 / 1024).toFixed(1);
+              var overlay = document.createElement("div");
+              overlay.className = "cld-overlay";
+              overlay.innerHTML =
+                '<div class="cld-modal">' +
+                '<h3>⚠️ Video Terlalu Besar</h3>' +
+                '<p>Ukuran video <strong>' + sizeMB + ' MB</strong> melebihi batas maksimal <strong>20 MB</strong>. Silakan kompres video terlebih dahulu.</p>' +
+                '<button class="cld-btn-retry" onclick="this.closest(\'.cld-overlay\').remove()">Tutup</button>' +
+                '</div>';
+              document.body.appendChild(overlay);
+              input.remove();
+              return;
+            }
+          }
+
           try {
             if (files.length === 1) {
               var url = await uploadFile(files[0]);

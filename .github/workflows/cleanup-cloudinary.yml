@@ -1,0 +1,57 @@
+name: Bersihkan Gambar Cloudinary (30 hari)
+
+on:
+  schedule:
+    # Jalan setiap hari pukul 02:00 WIB (19:00 UTC)
+    - cron: '0 19 * * *'
+  workflow_dispatch: # Bisa dijalankan manual
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hapus gambar Cloudinary lebih dari 30 hari
+        env:
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: |
+          echo "🔍 Mencari gambar yang lebih dari 30 hari..."
+
+          # Hitung tanggal 30 hari lalu (format ISO)
+          CUTOFF_DATE=$(date -u -d '30 days ago' '+%Y-%m-%dT%H:%M:%SZ')
+          echo "Batas tanggal: $CUTOFF_DATE"
+
+          # Cari semua resource yang di-upload sebelum tanggal cutoff
+          # Menggunakan Cloudinary Admin API Search
+          RESPONSE=$(curl -s -X POST \
+            "https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/resources/search" \
+            -u "${CLOUDINARY_API_KEY}:${CLOUDINARY_API_SECRET}" \
+            -H "Content-Type: application/json" \
+            -d "{\"expression\": \"uploaded_at<${CUTOFF_DATE}\", \"max_results\": 100}")
+
+          # Extract public_ids dari response
+          PUBLIC_IDS=$(echo "$RESPONSE" | python3 -c "
+          import sys, json
+          data = json.load(sys.stdin)
+          resources = data.get('resources', [])
+          for r in resources:
+              print(r['public_id'] + '|' + r['resource_type'])
+          " 2>/dev/null || echo "")
+
+          if [ -z "$PUBLIC_IDS" ]; then
+            echo "✅ Tidak ada gambar yang perlu dihapus."
+            exit 0
+          fi
+
+          COUNT=0
+          echo "$PUBLIC_IDS" | while IFS='|' read -r pid rtype; do
+            echo "🗑️ Menghapus: $pid ($rtype)"
+            curl -s -X DELETE \
+              "https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/resources/${rtype}/upload" \
+              -u "${CLOUDINARY_API_KEY}:${CLOUDINARY_API_SECRET}" \
+              -d "public_ids[]=${pid}" > /dev/null
+            COUNT=$((COUNT + 1))
+          done
+
+          echo "✅ Selesai. Total file dihapus: $(echo "$PUBLIC_IDS" | wc -l)"
