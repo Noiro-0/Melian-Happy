@@ -1,5 +1,5 @@
 ---
-title: "Sale Pisang Bu Parti "
+title: "Sale Pisang "
 kategori: UMKM
 image: /assets/img/uploads/salepisangmelian-4-.jpeg
 bg_color: var(--pine-dark)
