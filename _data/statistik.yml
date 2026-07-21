@@ -3,5 +3,21 @@ jumlah_kk: 51
 jumlah_penduduk: 131
 laki_laki: 65
 perempuan: 66
-mata_pencaharian: []
+mata_pencaharian:
+  - label: TNI
+    jumlah: 1
+  - label: PNS
+    jumlah: 2
+  - label: Karyawan Swasta
+    jumlah: 17
+  - label: Karyawan Honorer
+    jumlah: 1
+  - label: Perangkat Desa
+    jumlah: 2
+  - label: Pelajar / Mahasiswa
+    jumlah: 27
+  - label: Wiraswasta
+    jumlah: 7
+  - label: Petani / Pekebun
+    jumlah: 34
 umur: []

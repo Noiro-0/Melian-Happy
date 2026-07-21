@@ -1,53 +1,47 @@
-title: "Dusun Melian"
-description: "Website Resmi Dusun Melian, Desa Candi, Kecamatan Pringkuku, Kabupaten Pacitan — Informasi, Berita, dan Potensi Dusun"
-baseurl: ""
-url: "https://melianhappy.vercel.app"
-repository: "Noiro-0/Melian-Happy"
-author: "Pemerintah Dusun Melian"
-locale: "id_ID"
-twitter:
-  username: "dusunmelian"
-future: true
-
-# Identitas Dusun (edit lewat CMS: menu "Pengaturan Umum")
-dusun:
-  nama: "Dusun Melian"
-  desa: "Candi"
-  kecamatan: "Pringkuku"
-  kabupaten: "Pacitan"
-  provinsi: "Jawa Timur"
-  kepala_dusun: "Bapak Gangsar  Ipung H.C"
-  alamat: "Dusun Melian, Desa Candi, Kec. Pringkuku, Kab. Pacitan, Jawa Timur"
-  email: "dusunmelian@example.com"
-  whatsapp: "081234567890"
-
-collections:
-  potensi:
-    output: true
-    permalink: /potensi/:path/
-
-defaults:
-  - scope:
-      path: "_posts"
-      type: "posts"
-    values:
-      layout: "post"
-  - scope:
-      path: "_potensi"
-      type: "potensi"
-    values:
-      layout: "potensi"
-
-markdown: kramdown
-permalink: /berita/:year/:month/:day/:title/
-
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-
+future: true
+repository: Noiro-0/Melian-Happy
+author: Pemerintah Dusun Melian
+permalink: /berita/:year/:month/:day/:title/
+markdown: kramdown
+url: https://melianhappy.vercel.app
+defaults:
+  - scope:
+      path: _posts
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: _potensi
+      type: potensi
+    values:
+      layout: potensi
+twitter:
+  username: dusunmelian
+collections:
+  potensi:
+    output: true
+    permalink: /potensi/:path/
+title: Dusun Melian
 exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
   - node_modules
+locale: id_ID
+description: Website Resmi Dusun Melian, Desa Candi, Kecamatan Pringkuku,
+  Kabupaten Pacitan — Informasi, Berita, dan Potensi Dusun
+dusun:
+  kabupaten: Pacitan
+  provinsi: Jawa Timur
+  nama: Dusun Melian
+  alamat: Dusun Melian, Desa Candi, Kec. Pringkuku, Kab. Pacitan, Jawa Timur
+  desa: Candi
+  whatsapp: "081234567890"
+  kecamatan: Pringkuku
+  kepala_dusun: Bapak Gangsar  Ipung H.C
+  email: dusunmelianhappy@gmail.com
+baseurl: ""
