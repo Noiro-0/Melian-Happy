@@ -8,6 +8,6 @@ gmaps: <iframe
   width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
   referrerpolicy="strict-origin-when-cross-origin"></iframe>
 ---
-Usaha UMKM Pandai Besi Pak Misgiyanto 
+UMKM Pandai Besi Pak Misgiyanto memproduksi berbagai macam perkakas dan alat berbahan dasar besi yang kuat, tajam, dan berkualitas.
 
 Kontak WhatsApp: 087861048494
