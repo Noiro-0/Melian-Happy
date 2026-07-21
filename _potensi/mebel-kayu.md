@@ -1,5 +1,5 @@
 ---
-title: Mebel Kayu
+title: Mebel Kayu Woodeenwood
 kategori: UMKM
 image: /assets/img/uploads/whatsapp-image-2026-07-18-at-15.11.40-1-.jpeg
 bg_color: var(--pine-dark)
@@ -12,6 +12,6 @@ gmaps: <iframe
   width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
   referrerpolicy="strict-origin-when-cross-origin"></iframe>
 ---
-UMKM Mebel Kayu Pak Suharyono melayani pembuatan aneka furnitur kayu yang kokoh, rapi, dan tahan lama.
+UMKM Mebel Kayu Woodeenwood Pak Isnanto melayani pembuatan aneka furnitur kayu yang kokoh, rapi, dan tahan lama.
 
-Kontak: 085293000774
+Kontak: 082331205848
