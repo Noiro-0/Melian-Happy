@@ -6,9 +6,13 @@ lede: Dokumentasi kegiatan dan keseharian warga Dusun Melian.
 ---
 <div class="gallery-grid">
   {% for foto in site.data.galeri.galeri %}
-  <figure class="gallery-item" onclick="openLightbox({{ forloop.index0 }})" style="cursor: pointer;">
+  <figure class="gallery-item" {% unless foto.video %}onclick="openLightbox({{ forloop.index0 }})" style="cursor: pointer;"{% endunless %}>
     <div class="frame">
-      <img src="{{ foto.gambar | relative_url }}" alt="{{ foto.judul }}" loading="lazy">
+      {% if foto.video %}
+        <video src="{{ foto.video | relative_url }}" controls style="width: 100%; height: 100%; object-fit: cover;" preload="metadata"></video>
+      {% elsif foto.gambar %}
+        <img src="{{ foto.gambar | relative_url }}" alt="{{ foto.judul }}" loading="lazy">
+      {% endif %}
     </div>
     <figcaption>{{ foto.judul }}</figcaption>
   </figure>
@@ -22,7 +26,7 @@ lede: Dokumentasi kegiatan dan keseharian warga Dusun Melian.
   <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
   <span class="lightbox-prev" onclick="changeImage(-1, event)">&#10094;</span>
   <span class="lightbox-next" onclick="changeImage(1, event)">&#10095;</span>
-  <img class="lightbox-content" id="lightboxImage" onclick="event.stopPropagation()">
+  <div id="lightboxContentContainer"></div>
   <div id="lightboxCaption"></div>
 </div>
 
@@ -30,7 +34,13 @@ lede: Dokumentasi kegiatan dan keseharian warga Dusun Melian.
   var galleryItems = [
     {% for foto in site.data.galeri.galeri %}
       {
+        {% if foto.video %}
+        type: "video",
+        src: "{{ foto.video | relative_url }}",
+        {% else %}
+        type: "image",
         src: "{{ foto.gambar | relative_url }}",
+        {% endif %}
         caption: "{{ foto.judul | escape }}"
       }{% unless forloop.last %},{% endunless %}
     {% endfor %}
@@ -50,12 +60,20 @@ lede: Dokumentasi kegiatan dan keseharian warga Dusun Melian.
   }
 
   function updateLightbox() {
-    var img = document.getElementById('lightboxImage');
+    var container = document.getElementById('lightboxContentContainer');
     var cap = document.getElementById('lightboxCaption');
     
     if (galleryItems.length > 0) {
-      img.src = galleryItems[currentIndex].src;
-      cap.innerText = galleryItems[currentIndex].caption;
+      var item = galleryItems[currentIndex];
+      
+      // Inject correct element based on type
+      if (item.type === 'video') {
+        container.innerHTML = '<video class="lightbox-content" src="' + item.src + '" controls autoplay onclick="event.stopPropagation()"></video>';
+      } else {
+        container.innerHTML = '<img class="lightbox-content" src="' + item.src + '" onclick="event.stopPropagation()">';
+      }
+      
+      cap.innerText = item.caption;
     }
   }
 

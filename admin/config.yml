@@ -183,7 +183,8 @@ collections:
             widget: "list"
             fields:
               - { label: "Judul", name: "judul", widget: "string" }
-              - { label: "Gambar", name: "gambar", widget: "image" }
+              - { label: "Gambar (Opsional)", name: "gambar", widget: "image", required: false }
+              - { label: "Video (Opsional)", name: "video", widget: "file", required: false, allow_multiple: false, choose_url: false, hint: "Note: max ukuran video 20MB" }
 
   - name: "pengaturan"
     label: "Pengaturan Umum"

@@ -48,6 +48,18 @@
       link.href = canvas.toDataURL('image/png');
       document.head.appendChild(link);
     };
+
+    // Client-side validation to prevent uploading videos > 20MB
+    document.addEventListener('change', function(e) {
+      if (e.target && e.target.type === 'file' && e.target.files.length > 0) {
+        const file = e.target.files[0];
+        // Check if file is a video and size is > 20MB (20 * 1024 * 1024 bytes)
+        if (file.type.startsWith('video/') && file.size > 20 * 1024 * 1024) {
+          alert("Gagal: Ukuran video maksimal adalah 20MB! File Anda: " + (file.size / (1024 * 1024)).toFixed(1) + "MB");
+          e.target.value = ''; // Clear the input to prevent upload
+        }
+      }
+    });
   </script>
 </body>
 
