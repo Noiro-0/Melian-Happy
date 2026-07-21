@@ -79,6 +79,9 @@ content:
       - name: pdf_file
         label: Dokumen PDF
         type: file
+      - name: gmaps
+        label: Sematkan Google Maps (Kode Iframe)
+        type: string
       - name: body
         label: Deskripsi
         type: rich-text
