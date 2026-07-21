@@ -103,6 +103,7 @@ collections:
         widget: "list"
         required: false
         field: { label: "Foto", name: "image", widget: "image" }
+      - { label: "Sematkan Google Maps (Kode Iframe)", name: "gmaps", widget: "text", required: false, hint: "Paste kode HTML iframe dari Google Maps (Bagikan -> Sematkan Peta)" }
       - { label: "Deskripsi", name: "body", widget: "markdown" }
 
   - name: "profil"
