@@ -8,6 +8,10 @@ gallery:
   - /assets/img/uploads/whatsapp-image-2026-07-18-at-15.11.31-1-.jpeg
   - /assets/img/uploads/whatsapp-image-2026-07-21-at-16.59.33-2-.jpeg
   - /assets/img/uploads/whatsapp-image-2026-07-21-at-16.59.34.jpeg
+gmaps: <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d318.9227572233326!2d111.0171712205683!3d-8.220848249243383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7bdf005d1f94e3%3A0xd3778dbfbeb8f9bb!2sMabel%20usaha%20mandiri!5e0!3m2!1sid!2sid!4v1784631897266!5m2!1sid!2sid"
+  width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+  referrerpolicy="strict-origin-when-cross-origin"></iframe>
 ---
 UMKM Mebel Pak suharyono memproduksi berbagai macam mebel kayu dengan pengerjaan yang rapi dan kuat, serta melayani pesanan khusus sesuai kebutuhan pelanggan.\
 Kontak Whatsapp : 085293000774
