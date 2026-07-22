@@ -1,7 +1,13 @@
 perangkat:
   - nama: Bapak Gangsar Ipung H.C
     jabatan: Kepala Dusun
-    foto: ""
+    foto: /assets/img/uploads/edited-photo-2-.jpg
+  - nama: Bapak Sukiman
+    jabatan: Ketua RW
+    foto: /assets/img/uploads/edited-photo.jpg
   - nama: Bapak Misgiyanto
     jabatan: Ketua RT. 001
     foto: /assets/img/uploads/edited-photo-2-.png
+  - nama: Bapak Wijiono
+    jabatan: Ketua RT. 002
+    foto: /assets/img/uploads/edited-photo-1-.jpg
