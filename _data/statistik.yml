@@ -20,4 +20,32 @@ mata_pencaharian:
     jumlah: 7
   - label: Petani / Pekebun
     jumlah: 34
-umur: []
+  - label: Buruh
+    jumlah: 2
+  - label: Tukang Kayu
+    jumlah: 1
+  - label: Pensiunan
+    jumlah: 1
+  - label: Pedagang
+    jumlah: 1
+  - label: Mengurus Rumah Tangga
+    jumlah: 20
+  - label: Belum/Tidak Bekerja
+    jumlah: 13
+umur:
+  - label: 1 - 10
+    jumlah: 12
+  - label: 11 - 20
+    jumlah: 18
+  - label: 21 - 30
+    jumlah: 19
+  - label: 31 - 40
+    jumlah: 13
+  - label: 41 - 50
+    jumlah: 21
+  - label: 51 - 60
+    jumlah: 18
+  - label: 61 - 70
+    jumlah: 14
+  - label: "≥ 71 "
+    jumlah: 16
