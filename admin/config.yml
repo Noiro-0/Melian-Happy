@@ -111,12 +111,29 @@ collections:
     files:
       - name: "profil"
         label: "Halaman Profil & Sejarah"
-        file: "profil.html"
+        file: "profil.md"
         fields:
-          - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "profil" }
           - { label: "Icon", name: "icon", widget: "hidden", default: "bi-journal-bookmark" }
-          - { label: "Judul Halaman", name: "title", widget: "string" }
-          - { label: "Konten", name: "body", widget: "markdown" }
+          - { label: "Judul Halaman", name: "title", widget: "string", default: "Cerita Kami" }
+          - { label: "Logo", name: "logo", widget: "image", required: false }
+          - { label: "Sub Judul", name: "subtitle", widget: "string", default: "Tentang Dusun Melian" }
+          - { label: "Paragraf Pertama", name: "intro_text", widget: "text" }
+          - label: "Sekilas Wilayah"
+            name: "sekilas"
+            widget: "object"
+            fields:
+              - { label: "Lokasi", name: "lokasi", widget: "string" }
+              - { label: "Kawasan", name: "kawasan", widget: "string" }
+              - { label: "Hasil Bumi Terbanyak", name: "hasil_bumi", widget: "string" }
+          - label: "Karakteristik Dusun"
+            name: "karakteristik"
+            widget: "list"
+            fields:
+              - { label: "Judul", name: "judul", widget: "string" }
+              - { label: "Deskripsi", name: "deskripsi", widget: "text" }
+          - { label: "Paragraf Penutup", name: "closing_text", widget: "text" }
+          - { label: "Konten (Tidak Dipakai lagi)", name: "body", widget: "hidden", required: false }
 
   - name: "beranda_data"
     label: "Pengaturan Beranda"
