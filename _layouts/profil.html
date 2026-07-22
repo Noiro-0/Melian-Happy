@@ -2,19 +2,22 @@
 layout: default
 ---
 <style>
-.profil-wrapper {
+.profil-page {
   padding: 4rem 0;
+}
+.profil-header {
   display: flex;
   flex-wrap: wrap;
   gap: 3rem;
-  align-items: flex-start;
+  align-items: center; /* Vertically center the logo with the text */
+  margin-bottom: 4rem;
 }
-.profil-content {
+.profil-intro {
   flex: 1;
   min-width: 300px;
 }
 .profil-logo {
-  flex: 0 0 300px;
+  flex: 0 0 350px;
   max-width: 100%;
 }
 .profil-logo img {
@@ -49,102 +52,98 @@ layout: default
   background: rgba(156, 176, 128, 0.1);
   border: 1px solid rgba(156, 176, 128, 0.2);
   border-radius: var(--radius-xl);
-  padding: 2rem;
+  padding: 2.5rem;
   margin-bottom: 3rem;
 }
 .sekilas-card h3 {
   font-size: 1.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--md-sys-color-on-surface);
 }
 .sekilas-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 .sekilas-list li {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--md-sys-color-on-surface-variant);
 }
 .sekilas-list li i {
   color: var(--md-sys-color-primary);
   font-size: 1.25rem;
+  margin-top: 0.1rem;
+}
+.karakteristik-section {
+  margin-bottom: 3rem;
 }
 .karakteristik-section h3 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  color: var(--md-sys-color-on-surface);
 }
 .karakteristik-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 2rem;
+  margin: 0;
 }
 .karakteristik-list li {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
-  font-size: 1.05rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
   color: var(--md-sys-color-on-surface-variant);
+  background: var(--md-sys-color-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
 }
 .karakteristik-list li i {
   color: var(--md-sys-color-primary);
   margin-top: 0.2rem;
+  font-size: 1.25rem;
 }
 .karakteristik-list li strong {
   color: var(--md-sys-color-on-surface);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+@media (max-width: 768px) {
+  .profil-header {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .profil-eyebrow {
+    margin-top: 1.5rem;
+  }
+  .profil-logo {
+    flex: 0 0 auto;
+    width: 250px;
+  }
+  .karakteristik-list li {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 </style>
 
-<div class="container page-body">
-  <div class="profil-wrapper">
-    <div class="profil-content">
+<div class="container page-body profil-page">
+  
+  <div class="profil-header">
+    <div class="profil-intro">
       <span class="profil-eyebrow">{{ page.title }}</span>
       <h1 class="profil-title">{{ page.subtitle }}</h1>
       
       {% if page.intro_text %}
-      <div class="profil-text">
+      <div class="profil-text" style="margin-bottom: 0;">
         {{ page.intro_text | markdownify }}
-      </div>
-      {% endif %}
-
-      {% if page.sekilas %}
-      <div class="sekilas-card">
-        <h3>Sekilas Wilayah</h3>
-        <ul class="sekilas-list">
-          {% if page.sekilas.lokasi %}
-          <li><i class="bi bi-geo-alt"></i> <span>{{ page.sekilas.lokasi }}</span></li>
-          {% endif %}
-          {% if page.sekilas.kawasan %}
-          <li><i class="bi bi-tree"></i> <span>{{ page.sekilas.kawasan }}</span></li>
-          {% endif %}
-          {% if page.sekilas.hasil_bumi %}
-          <li><i class="bi bi-basket"></i> <span>Hasil bumi terbanyak: {{ page.sekilas.hasil_bumi }}</span></li>
-          {% endif %}
-        </ul>
-      </div>
-      {% endif %}
-
-      {% if page.karakteristik %}
-      <div class="karakteristik-section">
-        <h3>Karakteristik Dusun:</h3>
-        <ul class="karakteristik-list">
-          {% for item in page.karakteristik %}
-          <li>
-            <i class="bi bi-check-lg"></i>
-            <span><strong>{{ item.judul }}:</strong> {{ item.deskripsi }}</span>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-
-      {% if page.closing_text %}
-      <div class="profil-text">
-        {{ page.closing_text | markdownify }}
       </div>
       {% endif %}
     </div>
@@ -155,4 +154,47 @@ layout: default
     </div>
     {% endif %}
   </div>
+
+  <div class="profil-body">
+    {% if page.sekilas %}
+    <div class="sekilas-card">
+      <h3>Sekilas Wilayah</h3>
+      <ul class="sekilas-list">
+        {% if page.sekilas.lokasi %}
+        <li><i class="bi bi-geo-alt"></i> <span>{{ page.sekilas.lokasi }}</span></li>
+        {% endif %}
+        {% if page.sekilas.kawasan %}
+        <li><i class="bi bi-tree"></i> <span>{{ page.sekilas.kawasan }}</span></li>
+        {% endif %}
+        {% if page.sekilas.hasil_bumi %}
+        <li><i class="bi bi-basket"></i> <span>Hasil bumi terbanyak: {{ page.sekilas.hasil_bumi }}</span></li>
+        {% endif %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if page.karakteristik %}
+    <div class="karakteristik-section">
+      <h3>Karakteristik Dusun:</h3>
+      <ul class="karakteristik-list">
+        {% for item in page.karakteristik %}
+        <li>
+          <i class="bi bi-check-circle-fill"></i>
+          <div>
+            <strong>{{ item.judul }}</strong>
+            <span>{{ item.deskripsi }}</span>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if page.closing_text %}
+    <div class="profil-text">
+      {{ page.closing_text | markdownify }}
+    </div>
+    {% endif %}
+  </div>
+
 </div>
